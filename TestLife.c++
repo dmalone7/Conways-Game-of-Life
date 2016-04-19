@@ -32,6 +32,11 @@ TEST(ConwayCell,charConstrutor1) {
     ASSERT_EQ('*', cell.print());
 }
 
+TEST(ConwayCell, isAlive1) {
+    ConwayCell cell('*');
+    ASSERT_EQ(true, cell.isAlive());
+}
+
 // TEST(ConwayCell,charConstrutor2) {
 //     ConwayCell cell('*');
 //     ASSERT_EQ('*', cell.print());
@@ -66,5 +71,5 @@ TEST(FredkinCell, defaultConstrutor2) {
 TEST(FredkinCell, defaultConstrutor3) {
     FredkinCell cell;
     cell.evolve(1);
-    ASSERT_EQ('1', cell.print());
+    ASSERT_EQ('0', cell.print());
 }

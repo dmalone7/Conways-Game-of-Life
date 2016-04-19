@@ -13,6 +13,10 @@ ConwayCell::ConwayCell(const char c) {
 		throw std::runtime_error(std::string("Invalid char: ") + c);
 }
 
+status ConwayCell::isAlive () const {
+	return alive ? ALIVE : DEAD;
+}
+
 void ConwayCell::evolve(int neighbors) {
 	assert(neighbors >= 0);
     // a dead cell becomes a live cell, if exactly 3 neighbors are alive
@@ -38,6 +42,10 @@ FredkinCell::FredkinCell(const char c) : age(0) {
 		alive = false;
 	else
 		throw std::runtime_error(std::string("Invalid char: ") + c);
+}
+
+status FredkinCell::isAlive () const {
+	return !alive ? ALIVE : DEAD;
 }
 
 void FredkinCell::evolve(const int neighbors) {
@@ -71,9 +79,3 @@ char FredkinCell::print() {
 // ------------
 // Life
 // ------------
-
-// void Life::read(std::istream &i) {}
-
-// std::ostream& Life::print() {}
-
-// void Life::simulate() {}

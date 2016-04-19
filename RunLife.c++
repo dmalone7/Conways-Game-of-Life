@@ -22,39 +22,39 @@ int main () {
     // ----------------------
     // Life<ConwayCell> 21x13
     // ----------------------
-    // {
-    //     cout << "*** Life<ConwayCell> 21x13 ***" << endl;
-    //     /*
-    //     Simulate 12 evolutions.
-    //     Print every grid (i.e. 0, 1, 2, 3, ... 12)
-    //     */
+    {
+        cout << "*** Life<ConwayCell> 21x13 ***" << endl;
+        /*
+        Simulate 12 evolutions.
+        Print every grid (i.e. 0, 1, 2, 3, ... 12)
+        */
 
-    //     Life<ConwayCell> life(21, 13);
+        Life<ConwayCell> life(21, 13);
 
-    //     life.read(cin);
+        life.read(cin);
 
-    //     for (int i = 0; i <= 12; i++) {
-    //         life.print();
-    //         life.simulate();
-    //     }
-    // }
+        // for (int i = 0; i <= 12; i++) {
+            life.print();
+        //     life.simulate();
+        // }
+    }
 
     // // ----------------------
     // // Life<ConwayCell> 20x29
     // // ----------------------
     // {
-    //     cout << "*** Life<ConwayCell> 20x29 ***" << endl;
+        cout << "*** Life<ConwayCell> 20x29 ***" << endl;
     //     /*
     //     Simulate 28 evolutions.
     //     Print every 4th grid (i.e. 0, 4, 8, ... 28)
     //     */
-    //     Life<ConwayCell> life(20, 29);
+        Life<ConwayCell> life(20, 29);
 
-    //     life.read(cin);
+        life.read(cin);
 
     //     for (int i = 0; i <= 28; i++) {
     //         if (i % 4 = 0)
-    //             life.print();
+                life.print();
     //         life.simulate();
     //     }
     // }
