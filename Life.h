@@ -271,6 +271,9 @@ class Life {
         return rhs.write(lhs);}
 
     private:
+        FRIEND_TEST(LifeFixture, constructorTest1);
+        FRIEND_TEST(LifeFixture, constructorTest2);
+        FRIEND_TEST(LifeFixture, constructorTest3);
         std::vector<T> cellGrid;
         std::vector<int> neighborGrid;
         int row;
@@ -331,7 +334,7 @@ class Life {
          * @param 
          * @return 
          */
-        void simulate(void) {
+        void simulate() {
             for (int i = 0; i < row * col; i++) {
                 neighborGrid[i] = getNumNeighbors(i / col, i % col);
             }
@@ -380,13 +383,13 @@ class Life {
                 isCell[1] = false;
                 isCell[7] = false;  
             }
-            //A North cells are false
+            //A South cells are false
             if (r == row-1) {
                 isCell[5] = false; 
                 isCell[6] = false;
                 isCell[7] = false;  
             }
-            //A North cells are false
+            //A East cells are false
             if (c == col-1) {
                 isCell[3] = false; 
                 isCell[4] = false;

@@ -15,8 +15,7 @@ ConwayCell::ConwayCell(const char c) {
 }
 
 void ConwayCell::evolve(int neighbors) {
-	assert(neighbors >= 0);
-
+	assert(neighbors >= 0 && neighbors <= 8);
 	// a dead cell becomes a live cell, if exactly 3 neighbors are alive
 	if (!alive && neighbors == 3)
 		alive = true;
@@ -26,6 +25,8 @@ void ConwayCell::evolve(int neighbors) {
 }
 
 bool ConwayCell::isNeighbor(int myrow, int mycol, int n_row, int n_col) {
+	assert(myrow >= 0 && mycol >= 0);
+	assert(n_row >= 0 && n_col >= 0);
 	int val = abs(myrow - n_row) + abs(mycol - n_col);
 	return val == 1 || val == 2;
 }
@@ -48,7 +49,7 @@ FredkinCell::FredkinCell(const char c) : age(0) {
 }
 
 void FredkinCell::evolve(const int neighbors) {
-	assert(neighbors >= 0);
+	assert(neighbors >= 0 && neighbors <= 8);
 
 	// a dead cell becomes a live cell, if 1 or 3 neighbors are alive
 	if (!alive && (neighbors == 1 || neighbors == 3))
@@ -62,6 +63,8 @@ void FredkinCell::evolve(const int neighbors) {
 }
 
 bool FredkinCell::isNeighbor(int myrow, int mycol, int n_row, int n_col) {
+	assert(myrow >= 0 && mycol >= 0);
+	assert(n_row >= 0 && n_col >= 0);
 	int val = abs(myrow - n_row) + abs(mycol - n_col);
 	return val == 1;
 }
@@ -72,6 +75,7 @@ char FredkinCell::write() const {
 }
 
 bool FredkinCell::turnConway() const {
+	assert(age <= 2);
 	return age == 2;
 }
 
@@ -88,6 +92,7 @@ Cell::Cell(char c) : type(FREDKIN) {
 }
 
 void Cell::evolve(int neighbors) {
+	assert(neighbors >= 0 && neighbors <= 8);
 	cell->evolve(neighbors);
 
 	if (type == FREDKIN && static_cast<FredkinCell*>(cell)->turnConway()) {
@@ -101,14 +106,18 @@ void Cell::evolve(int neighbors) {
 }
 
 bool Cell::isNeighbor(int myrow, int mycol, int n_row, int n_col) {
+	assert(myrow >= 0 && mycol >= 0);
+	assert(n_row >= 0 && n_col >= 0);
 	return cell->isNeighbor(myrow, mycol, n_row, n_col);
 }
 
 char Cell::write() const {
+	assert(cell != nullptr);
 	return cell->write();
 }
 
 status Cell::isAlive () const {
+	assert(cell != nullptr);
 	return cell->isAlive();
 }
 
