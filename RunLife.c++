@@ -33,9 +33,11 @@ int main () {
         Life<ConwayCell> life(21, 13);
 
         life.read(cin);
+        cout << endl;
 
         for (int i = 0; i <= 12; i++) {
-            cout << "Generation = " << i << ", Population = " << endl;
+            int population = life.findPopulation();
+            cout << "Generation = " << i << ", Population = " << population << "." << endl;
             life.print();
             life.simulate();
         }
@@ -53,10 +55,12 @@ int main () {
         Life<ConwayCell> life(20, 29);
 
         life.read(cin);
+        cout << endl;
 
         for (int i = 0; i <= 28; i++) {
             if (i % 4 == 0) {
-                cout << "Generation = " << i << ", Population = " << endl;
+                int population = life.findPopulation();
+                cout << "Generation = " << i << ", Population = " << population << "." << endl;
                 life.print();
             }
             life.simulate();
@@ -80,24 +84,27 @@ int main () {
         Life<ConwayCell> life(109, 69);
 
         life.read(cin);
+        cout << endl;
 
-        for (int i = 0; i <= 283; i++) {
+        for (int i = 0; i <= 2500; i++) {
             if (i < 10) {
-                cout << "Generation = " << i << ", Population = " << endl;
+                int population = life.findPopulation();
+                cout << "Generation = " << i << ", Population = " << population << "." << endl;
                 life.print();
             }
-            life.simulate();
-        }
-        for (int i = 0; i <= 40; i++) {
-            if (i == 40) {
-                cout << "Generation = " << i << ", Population = " << endl;
+            if (i == 283) {
+                int population = life.findPopulation();
+                cout << "Generation = " << i << ", Population = " << population << "." << endl;
+                life.print();               
+            }
+            if (i == 323) {
+                int population = life.findPopulation();
+                cout << "Generation = " << i << ", Population = " << population << "." << endl;
                 life.print();
             }
-            life.simulate();
-        }
-        for (int i = 0; i <= 2177; i++) {
-            if (i == 2177) {
-                cout << "Generation = " << i << ", Population = " << endl;
+            if (i == 2500) {
+                int population = life.findPopulation();
+                cout << "Generation = " << i << ", Population = " << population << "." << endl;
                 life.print();
             }
             life.simulate();
@@ -116,9 +123,11 @@ int main () {
         Life<FredkinCell> life(20, 20);
         
         life.read(cin);
+        cout << endl;
 
         for (int i = 0; i <= 5; i++) {
-            cout << "Generation = " << i << ", Population = " << endl;
+            int population = life.findPopulation();
+            cout << "Generation = " << i << ", Population = " << population << "." << endl;
             life.print();
             life.simulate();
         }
@@ -136,9 +145,11 @@ int main () {
         Life<Cell> life(20, 20);
 
         life.read(cin);
+        cout << endl;
 
         for (int i = 0; i <= 5; i++) {
-            cout << "Generation = " << i << ", Population = " << endl;
+            int population = life.findPopulation();
+            cout << "Generation = " << i << ", Population = " << population << "." << endl;
             life.print();
             life.simulate();
         }

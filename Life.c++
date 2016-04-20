@@ -33,7 +33,7 @@ void ConwayCell::evolve(int neighbors) {
 		alive = false;
 }
 
-char ConwayCell::print() {
+char ConwayCell::print() const{
 	return alive ? '*' : '.';
 }
 
@@ -72,12 +72,12 @@ void FredkinCell::evolve(const int neighbors) {
 		++age;
 }
 
-char FredkinCell::print() {
+char FredkinCell::print() const {
 	char c = alive ? age + '0' : '-'; // prints age as char
 	return (age > 9 && alive) ? '+' : c;
 }
 
-bool FredkinCell::checkConway() {
+bool FredkinCell::checkConway() const {
 	return age == 2;
 }
 
@@ -111,7 +111,7 @@ void Cell::evolve(int neighbors) {
 	}
 }
 
-char Cell::print() {
+char Cell::print() const{
 	return cell->print();
 }
 

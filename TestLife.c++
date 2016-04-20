@@ -32,11 +32,6 @@ TEST(ConwayCell,charConstrutor1) {
     ASSERT_EQ('*', cell.print());
 }
 
-TEST(ConwayCell, isAlive1) {
-    ConwayCell cell('*');
-    ASSERT_EQ(true, cell.isAlive());
-}
-
 // TEST(ConwayCell,charConstrutor2) {
 //     ConwayCell cell('*');
 //     ASSERT_EQ('*', cell.print());
@@ -52,6 +47,11 @@ TEST(ConwayCell,charConstrutor3) {
         ConwayCell cell('.');
         ASSERT_EQ('.', cell.print());
     }
+}
+
+TEST(ConwayCell, isAlive1) {
+    ConwayCell cell('*');
+    ASSERT_EQ(true, cell.isAlive());
 }
 
 // -----------
@@ -74,6 +74,16 @@ TEST(FredkinCell, defaultConstrutor3) {
     ASSERT_EQ('0', cell.print());
 }
 
+// ----
+// Cell
+// ----
+
+
+
+// ----
+// Life
+// ----
+
 // TEST(Life, simulate1) {
 //     Life<ConwayCell> life(3, 3);
 //     istringstream is(".*.\n.*.\n.*.");
@@ -83,6 +93,7 @@ TEST(FredkinCell, defaultConstrutor3) {
 //         life.simulate();
 //     }
 // }
+
 // TEST(Life, simulate2) {
 //     Life<FredkinCell> life(3, 3);
 //     istringstream is("-0-\n---\n---");
@@ -93,16 +104,15 @@ TEST(FredkinCell, defaultConstrutor3) {
 //     }
 // }
 
-TEST(Life, simulate2) {
-    Life<FredkinCell> life(2, 2);
-    istringstream is("0-\n0-");
-    life.read(is);
-    for(int i = 0; i < 11; i++) {
-        life.print();
-        life.simulate();
-    }
-}
-
+// TEST(Life, simulate3) {
+//     Life<FredkinCell> life(2, 2);
+//     istringstream is("0-\n0-");
+//     life.read(is);
+//     for(int i = 0; i < 11; i++) {
+//         life.print();
+//         life.simulate();
+//     }
+// }
 
 TEST(Life, getNumNeighbors1) {
     Life<ConwayCell> life(2, 2);
