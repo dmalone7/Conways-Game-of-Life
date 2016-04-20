@@ -73,3 +73,68 @@ TEST(FredkinCell, defaultConstrutor3) {
     cell.evolve(1);
     ASSERT_EQ('0', cell.print());
 }
+
+// TEST(Life, simulate1) {
+//     Life<ConwayCell> life(3, 3);
+//     istringstream is(".*.\n.*.\n.*.");
+//     life.read(is);
+//     for(int i = 0; i < 3; i++) {
+//         life.print();
+//         life.simulate();
+//     }
+// }
+// TEST(Life, simulate2) {
+//     Life<FredkinCell> life(3, 3);
+//     istringstream is("-0-\n---\n---");
+//     life.read(is);
+//     for(int i = 0; i < 11; i++) {
+//         life.print();
+//         life.simulate();
+//     }
+// }
+
+TEST(Life, simulate2) {
+    Life<FredkinCell> life(2, 2);
+    istringstream is("0-\n0-");
+    life.read(is);
+    for(int i = 0; i < 11; i++) {
+        life.print();
+        life.simulate();
+    }
+}
+
+
+TEST(Life, getNumNeighbors1) {
+    Life<ConwayCell> life(2, 2);
+    istringstream is(".*\n*.");
+    life.read(is);
+    ASSERT_EQ(2, life.getNumNeighbors(0, 0));
+    ASSERT_EQ(1, life.getNumNeighbors(1, 0));
+    ASSERT_EQ(1, life.getNumNeighbors(0, 1));
+    ASSERT_EQ(2, life.getNumNeighbors(1, 1));
+}
+
+TEST(Life, getNumNeighbors2) {
+    Life<FredkinCell> life(3, 3);
+    istringstream is("000\n000\n000");
+    life.read(is);
+    ASSERT_EQ(2, life.getNumNeighbors(0, 0));
+    ASSERT_EQ(2, life.getNumNeighbors(0, 2));
+    ASSERT_EQ(2, life.getNumNeighbors(2, 0));
+    ASSERT_EQ(2, life.getNumNeighbors(2, 2));
+    ASSERT_EQ(4, life.getNumNeighbors(1, 1));
+    ASSERT_EQ(3, life.getNumNeighbors(0, 1));
+    ASSERT_EQ(3, life.getNumNeighbors(1, 0));
+    ASSERT_EQ(3, life.getNumNeighbors(1, 2));
+    ASSERT_EQ(3, life.getNumNeighbors(2, 1));
+}
+
+// TEST(Life, getNumNeighbors3) {
+//     Life<Cell> life(2, 2);
+//     istringstream is(".*\n*.");
+//     life.read(is);
+//     ASSERT_EQ(2, life.getNumNeighbors(0, 0));
+//     ASSERT_EQ(1, life.getNumNeighbors(1, 0));
+//     ASSERT_EQ(1, life.getNumNeighbors(0, 1));
+//     ASSERT_EQ(2, life.getNumNeighbors(1, 1));
+// }

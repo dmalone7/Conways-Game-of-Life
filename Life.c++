@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include "Life.h"
 
 // -----------
@@ -15,6 +16,11 @@ ConwayCell::ConwayCell(const char c) {
 
 status ConwayCell::isAlive () const {
 	return alive ? ALIVE : DEAD;
+}
+
+bool ConwayCell::isNeighbor(int myrow, int mycol, int n_row, int n_col) {
+	int val = abs(myrow - n_row) + abs(mycol - n_col);
+	return val == 1 || val == 2;
 }
 
 void ConwayCell::evolve(int neighbors) {
@@ -45,7 +51,13 @@ FredkinCell::FredkinCell(const char c) : age(0) {
 }
 
 status FredkinCell::isAlive () const {
-	return !alive ? ALIVE : DEAD;
+	return alive ? ALIVE : DEAD;
+}
+
+bool FredkinCell::isNeighbor(int myrow, int mycol, int n_row, int n_col)
+{
+	int val = abs(myrow - n_row) + abs(mycol - n_col);
+	return val == 1;
 }
 
 void FredkinCell::evolve(const int neighbors) {
@@ -56,25 +68,52 @@ void FredkinCell::evolve(const int neighbors) {
 		alive = true;
 	else if (alive && (neighbors == 0 || neighbors == 2 || neighbors == 4))
 		alive = false;
-	else
+	else if (alive)
 		++age;
 }
 
 char FredkinCell::print() {
-	return alive ? age + '0' : '-'; // prints age as char
+	char c = alive ? age + '0' : '-'; // prints age as char
+	return (age > 9 && alive) ? '+' : c;
+}
+
+bool FredkinCell::checkConway() {
+	return age == 2;
 }
 
 // ----
 // Cell
 // ----
 
-// Cell::AbstractCell() {}
+Cell::Cell() : type(FREDKIN) {
+	cell = new FredkinCell();
+}
 
-// Cell::AbstractCell(char c) {}
+Cell::Cell(char c) : type(FREDKIN) {
+	cell = new FredkinCell(c);
+}
 
-// void Cell::evolve(int neighbors) {}
+status Cell::isAlive () const {
+	return cell->isAlive();
+}
 
-// char Cell::print() {}
+bool Cell::isNeighbor(int myrow, int mycol, int n_row, int n_col) {
+	return cell->isNeighbor(myrow, mycol, n_row, n_col);
+}
+
+void Cell::evolve(int neighbors) {
+	cell->evolve(neighbors);
+
+	if (type == FREDKIN && static_cast<FredkinCell*>(cell)->checkConway()) {
+		delete cell;
+		cell = new ConwayCell('*');
+		type = CONWAY;
+	}
+}
+
+char Cell::print() {
+	return cell->print();
+}
 
 // ------------
 // Life

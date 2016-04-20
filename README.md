@@ -13,4 +13,3 @@ David Malone (dkm657)
 Nishanth Pradeep  (np6949)
 
 Est. Time Completion: 20 hours
-
