@@ -318,6 +318,12 @@ class Life {
         FRIEND_TEST(LifeFixture, constructorTest1);
         FRIEND_TEST(LifeFixture, constructorTest2);
         FRIEND_TEST(LifeFixture, constructorTest3);
+        FRIEND_TEST(LifeFixture, readTest1);
+        FRIEND_TEST(LifeFixture, readTest2);
+        FRIEND_TEST(LifeFixture, readTest3);
+        FRIEND_TEST(LifeFixture, writeTest1);
+        FRIEND_TEST(LifeFixture, writeTest2);
+        FRIEND_TEST(LifeFixture, writeTest3);
         std::vector<T> cellGrid;
         std::vector<int> neighborGrid;
         int row;
@@ -514,6 +520,7 @@ class Life {
          * @return pointer to the end of the vector gridCell
          */
         T* end() {
-            return (&cellGrid[row * col-1]);
+            T* p = &cellGrid[row*col - 1];
+            return ++p;
         }
 };

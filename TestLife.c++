@@ -8,6 +8,30 @@
 using namespace std;
 
 // ----------
+// AbstractCell
+// ----------
+
+TEST(AbstractCellFixture, isAliveTest1) {
+    AbstractCell *cell = new ConwayCell();
+    ASSERT_EQ(DEAD, cell->isAlive());
+    delete cell;
+}
+
+TEST(AbstractCellFixture, isAliveTest2) {
+    AbstractCell *cell = new FredkinCell('0');
+    ASSERT_EQ(ALIVE, cell->isAlive());
+    delete cell;
+}
+
+TEST(AbstractCellFixture, isAliveTest3) {
+    AbstractCell *cell = new ConwayCell('.');
+    ASSERT_EQ(DEAD, cell->isAlive());
+    cell->evolve(3);
+    ASSERT_EQ(ALIVE, cell->isAlive());
+    delete cell;
+}
+
+// ----------
 // ConwayCell
 // ----------
 
@@ -125,7 +149,7 @@ TEST(FredkinCellFixture, defaultConstrutorTest3) {
     ASSERT_EQ('0', cell.write());
 }
 
-TEST(FredkinCellFixture, defaultConstrutorTest4) {
+TEST(FredkinCellFixture, charConstrutorTest1) {
     try {
         FredkinCell cell('+');
         cell.evolve(1);
@@ -134,8 +158,24 @@ TEST(FredkinCellFixture, defaultConstrutorTest4) {
     catch(std::runtime_error e) {
         ASSERT_TRUE(true);
     }
-    
 }
+
+TEST(FredkinCellFixture, charConstrutorTest2) {
+    try {
+        FredkinCell cell('2');
+        cell.evolve(1);
+        ASSERT_TRUE(false);
+    }
+    catch(std::runtime_error e) {
+        ASSERT_TRUE(true);
+    }
+}
+
+TEST(FredkinCellFixture, charConstrutorTest3) {
+    FredkinCell cell('0');
+    ASSERT_EQ('0', cell.write());
+}
+
 //Test FredkinCell::evolve(const int neighbors)
 //Test all four cases
 TEST(FredkinCellFixture, evolveTest1) {
@@ -250,10 +290,10 @@ TEST(FredkinCellFixture, turnConwayTest3) {
     ASSERT_FALSE(cell.turnConway());
 }
 
-
 // ----
 // Cell
 // ----
+
 //Test Cell constructors
 //all intialize of Cell should be a dead Fredkin Cell
 TEST(CellFixture, defaultConstructorTest1) {
@@ -457,11 +497,133 @@ TEST(CellFixture, isAliveTest3) {
     ASSERT_EQ(DEAD,cell.isAlive());
 }
 
-
-
 // ----
 // Life
 // ----
+
+TEST(LifeFixture, operator>>Test1) {
+    Life<ConwayCell> life(2, 2);
+    istringstream in(".*.*");
+    life.read(in);
+    ASSERT_EQ(4, life.cellGrid.size());
+}
+
+TEST(LifeFixture, operator>>Test2) {
+    Life<FredkinCell> life(3, 2);
+    istringstream in("--00--");
+    life.read(in);
+    ASSERT_EQ(6, life.cellGrid.size());
+}
+
+TEST(LifeFixture, operator>>Test3) {
+    Life<Cell> life(4, 4);
+    istringstream in("---00---00----");
+    life.read(in);
+    ASSERT_EQ(16, life.cellGrid.size());
+}
+
+TEST(LifeFixture, operator<<Test1) {
+    Life<Cell> life(4, 4);
+    istringstream in("---00---00------");
+    // read input stream into life
+    in >> life;
+    ostringstream out;
+    // write output into out stream
+    life.write(out);
+    // compare string with output string
+    ASSERT_EQ("---0\n0---\n00--\n----\n", out.str());
+}
+
+TEST(LifeFixture, operator<<Test2) {
+    Life<FredkinCell> life(4, 4);
+    istringstream in("-----00--00-----");
+    // read input stream into life
+    in >> life;
+    ostringstream out;
+    // write output into out stream
+    life.write(out);
+    // compare string with output string
+    ASSERT_EQ("----\n-00-\n-00-\n----\n", out.str());
+    life.simulate();
+    // clears output stream
+    out.str("");
+    life.write(out);
+    ASSERT_EQ("-00-\n0--0\n0--0\n-00-\n", out.str());
+}
+
+TEST(LifeFixture, operator<<Test3) {
+    Life<ConwayCell> life(3, 3);
+    istringstream in("...***...");
+    // read input stream into life
+    in >> life;
+    ostringstream out;
+    // write output into out stream
+    life.write(out);
+    // compare string with output string
+    ASSERT_EQ("...\n***\n...\n", out.str());
+}
+
+TEST(LifeFixture, readTest1) {
+    Life<ConwayCell> life(2, 2);
+    istringstream in(".*.*");
+    life.read(in);
+    ASSERT_EQ(4, life.cellGrid.size());
+}
+
+TEST(LifeFixture, readTest2) {
+    Life<FredkinCell> life(3, 2);
+    istringstream in("--00--");
+    life.read(in);
+    ASSERT_EQ(6, life.cellGrid.size());
+}
+
+TEST(LifeFixture, readTest3) {
+    Life<Cell> life(4, 4);
+    istringstream in("---00---00----");
+    life.read(in);
+    ASSERT_EQ(16, life.cellGrid.size());
+}
+
+TEST(LifeFixture, writeTest1) {
+    Life<Cell> life(4, 4);
+    istringstream in("---00---00------");
+    // read input stream into life
+    in >> life;
+    ostringstream out;
+    // write output into out stream
+    life.write(out);
+    // compare string with output string
+    ASSERT_EQ("---0\n0---\n00--\n----\n", out.str());
+}
+
+TEST(LifeFixture, writeTest2) {
+    Life<FredkinCell> life(4, 4);
+    istringstream in("-----00--00-----");
+    // read input stream into life
+    in >> life;
+    ostringstream out;
+    // write output into out stream
+    life.write(out);
+    // compare string with output string
+    ASSERT_EQ("----\n-00-\n-00-\n----\n", out.str());
+    life.simulate();
+    // clears output stream
+    out.str("");
+    life.write(out);
+    ASSERT_EQ("-00-\n0--0\n0--0\n-00-\n", out.str());
+}
+
+TEST(LifeFixture, writeTest3) {
+    Life<ConwayCell> life(3, 3);
+    istringstream in("...***...");
+    // read input stream into life
+    in >> life;
+    ostringstream out;
+    // write output into out stream
+    life.write(out);
+    // compare string with output string
+    ASSERT_EQ("...\n***\n...\n", out.str());
+}
 
 TEST(LifeFixture, constructorTest1) {
     Life<ConwayCell> life(2, 2);
@@ -491,7 +653,7 @@ TEST(LifeFixture, simulateTest1) {
     out << life;
     // Blinker, oscillates between two states
     ASSERT_EQ(".*.\n.*.\n.*.\n", out.str());
-    life.simulate(3);
+    life.simulate();
     // clears ostringstream
     out.str("");
     out << life;
@@ -507,6 +669,54 @@ TEST(LifeFixture, simulateTest2) {
     out << life;
     ASSERT_EQ("-0-\n---\n---\n", out.str());
     // simulate 3 turns
+    life.simulate();
+    // clears ostringstream
+    out.str("");
+    out << life;
+    ASSERT_EQ("0-0\n-0-\n---\n", out.str());
+}
+
+TEST(LifeFixture, simulateTest3) {
+    // 3x2 Grid of Cells
+    Life<Cell> life(3, 2);
+    istringstream in("-0\n--\n0-");
+    in >> life;
+    ostringstream out;
+    out << life;
+    ASSERT_EQ("-0\n--\n0-\n", out.str());
+    // simulate 6 turns
+    life.simulate();
+    // clears ostringstream
+    out.str("");
+    out << life;
+    ASSERT_EQ("0-\n00\n-0\n", out.str());
+}
+
+TEST(LifeFixture, simulateIntTest1) {
+    // 3x3 Grid of ConwayCells
+    Life<ConwayCell> life(3, 3);
+    istringstream in(".*.\n.*.\n.*.");
+    in >> life;
+    ostringstream out;
+    out << life;
+    // Blinker, oscillates between two states
+    ASSERT_EQ(".*.\n.*.\n.*.\n", out.str());
+    life.simulate(3);
+    // clears ostringstream
+    out.str("");
+    out << life;
+    ASSERT_EQ("...\n***\n...\n", out.str());
+}
+
+TEST(LifeFixture, simulateIntTest2) {
+    // 3x3 Grid of FredkinCells
+    Life<FredkinCell> life(3, 3);
+    istringstream in("-0-\n---\n---");
+    in >> life;
+    ostringstream out;
+    out << life;
+    ASSERT_EQ("-0-\n---\n---\n", out.str());
+    // simulate 3 turns
     life.simulate(3);
     // clears ostringstream
     out.str("");
@@ -514,7 +724,7 @@ TEST(LifeFixture, simulateTest2) {
     ASSERT_EQ("0-0\n---\n0-0\n", out.str());
 }
 
-TEST(LifeFixture, simulateTest3) {
+TEST(LifeFixture, simulateIntTest3) {
     // 3x2 Grid of Cells
     Life<Cell> life(3, 2);
     istringstream in("-0\n--\n0-");
@@ -613,9 +823,9 @@ TEST(LifeFixture, atTest1) {
     Life<ConwayCell> life(3, 3);
     istringstream in("...\n.*.\n...");
     in >> life;
+
     ConwayCell live = life.at(1, 1);
     ConwayCell dead = life.at(0, 1);
-
     ASSERT_EQ(ALIVE, live.isAlive());
     ASSERT_EQ(DEAD, dead.isAlive());
 }
@@ -624,10 +834,13 @@ TEST(LifeFixture, atTest2) {
     Life<FredkinCell> life(3, 3);
     istringstream in("-0-\n-0-\n-0-");
     in >> life;
+
     FredkinCell cell = life.at(1,1);
+    // starts off alive
     ASSERT_EQ(ALIVE, cell.isAlive());
     life.simulate();
     cell = life.at(1,1);
+    // ends up dead
     ASSERT_EQ(DEAD, cell.isAlive());
 }
 
@@ -635,11 +848,12 @@ TEST(LifeFixture, atTest3) {
     Life<Cell> life(4, 4);
     istringstream in("----\n-00-\n-00-\n----");
     in >> life;
-    // 
     Cell cell = life.at(0, 1);
+    // starts off dead
     ASSERT_EQ(DEAD, cell.isAlive());
     life.simulate(5);
     cell = life.at(0, 1);
+    // ends up alive
     ASSERT_EQ(ALIVE, cell.isAlive());
     ASSERT_EQ('*', cell.write());
 }
@@ -648,7 +862,7 @@ TEST(LifeFixture, beginTest1) {
     Life<ConwayCell> life(3, 3);
     istringstream in("...\n.*.\n...");
     in >> life;
-
+    // first cell in array
     ConwayCell *cell = life.begin();
     ASSERT_EQ('.', cell->write());
 }
@@ -657,7 +871,7 @@ TEST(LifeFixture, beginTest2) {
     Life<FredkinCell> life(3, 3);
     istringstream in("---\n0-0\n---");
     in >> life;
-
+    // first cell in array
     FredkinCell *cell = life.begin();
     ASSERT_EQ('-', cell->write());
     life.simulate();
@@ -668,7 +882,7 @@ TEST(LifeFixture, beginTest3) {
     Life<Cell> life(3, 3);
     istringstream in("0--\n0-0\n0--");
     in >> life;
-
+    // first cell in array
     Cell *cell = life.begin();
     // starts off alive FredkinCell
     ASSERT_EQ('0', cell->write());
@@ -681,8 +895,8 @@ TEST(LifeFixture, endTest1) {
     Life<ConwayCell> life(3, 3);
     istringstream in("...\n...\n..*");
     in >> life;
-
-    ConwayCell *cell = life.end();
+    // last cell in array
+    ConwayCell *cell = life.end()-1;
     ASSERT_EQ('*', cell->write());
 }
 
@@ -690,8 +904,8 @@ TEST(LifeFixture, endTest2) {
     Life<FredkinCell> life(3, 3);
     istringstream in("---\n0-0\n---");
     in >> life;
-
-    FredkinCell *cell = life.end();
+    // last cell in array
+    FredkinCell *cell = life.end()-1;
     // end starts dead
     ASSERT_EQ('-', cell->write());
     life.simulate();
@@ -703,9 +917,12 @@ TEST(LifeFixture, endTest3) {
     Life<Cell> life(3, 3);
     istringstream in("0--\n0-0\n0--");
     in >> life;
-
-    Cell *cell = life.end();
-    // starts off dead
-    cout << life;
+    // last cell in array
+    Cell *cell = life.end()-1;
+    // starts off alive FredkinCell
+    ASSERT_EQ('-', cell->write());
+    life.simulate(5);
+    // stays dead FredkinCell
     ASSERT_EQ('-', cell->write());
 }
+
