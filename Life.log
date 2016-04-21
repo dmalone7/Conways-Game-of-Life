@@ -1,3 +1,21 @@
+commit a4ddb6a3a4b0ad836f71d01f08fdf6b4bfa58aa8
+Author: David Malone <dmalone7@cs.utexas.edu>
+Date:   Thu Apr 21 18:47:08 2016 -0500
+
+    added const iterator functions to life.h
+
+commit 308610310328f28dafb551592599b21104fba481
+Author: David Malone <dmalone7@cs.utexas.edu>
+Date:   Thu Apr 21 18:31:13 2016 -0500
+
+    fixed life uml diagram
+
+commit ae3570d388f16e973b6250ab9710abfb77dc2afa
+Author: Nishanth Pradeep <nishp21@cs.utexas.edu>
+Date:   Thu Apr 21 17:37:23 2016 -0500
+
+    Added Life.log
+
 commit bf7879055b6abd62a13675fe436af67fb223fa47
 Author: Nishanth Pradeep <nishp21@cs.utexas.edu>
 Date:   Thu Apr 21 17:35:50 2016 -0500
