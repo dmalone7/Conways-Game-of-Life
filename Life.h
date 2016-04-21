@@ -23,36 +23,18 @@ class AbstractCell {
          * O(1) in space
          * O(1) in time
          * 
-         * AbstractCell constructor that initializes
-         * alive to false
+         * @param 
+         * @return 
          */
         AbstractCell() :
             alive(false) 
             {}
 
-        /**
-        * AbstractCell destructor
-        */
         virtual ~AbstractCell() 
             {}
 
-        /**
-        * abstract method
-        * @param neighbors taking the number of numbers around cell
-        */
         virtual void evolve(const int neighbors) = 0;
 
-        /**
-        * abstract method
-        * Given current row and col and another cell's row and coll
-        * checks to see if the other cell is a neighbor
-        *
-        * @param myrow is the row position of this cell
-        * @param mycol is the col position of this cell
-        * @param n_row is the row position of neighbor cell
-        * @param n_col is the col position of neighbor cell
-        * @return true if considered neighbor for the implemented cell
-        */
         virtual bool isNeighbor(int myrow, int mycol, int n_row, int n_col) = 0;
 
         virtual char write(void) const = 0;
@@ -63,8 +45,8 @@ class AbstractCell {
          * O(1) in space
          * O(1) in time
          * 
-         * @return if data member of alive is true then return
-         * ALIVE else return DEAD
+         * @param 
+         * @return 
          */
         virtual status isAlive() const {
             return alive ? ALIVE : DEAD;
@@ -77,8 +59,8 @@ class ConwayCell : public AbstractCell {
          * O(1) in space
          * O(1) in time
          * 
-         * ConwayCell default constructor.
-         * Initializes alive to false
+         * @param 
+         * @return 
          */
         ConwayCell() :
             AbstractCell() 
@@ -88,9 +70,8 @@ class ConwayCell : public AbstractCell {
          * O(1) in space
          * O(1) in time
          * 
-         * ConwayCell constructor.
-         * Initialive alive member to true if '*'
-         * else false
+         * @param 
+         * @return 
          */
         ConwayCell(const char c);
 
@@ -98,11 +79,8 @@ class ConwayCell : public AbstractCell {
          * O(1) in space
          * O(1) in time
          * 
-         * Follows the rules of conway cell.
-         *  a dead cell becomes a live cell, if exactly 3 neighbors are alive
-         *  a live cell becomes a dead cell, if less than 2 or more than 3 neighbors are alive
-         *
-         * @param neighbors is the number of neighbors around this cell
+         * @param 
+         * @return 
          */
         void evolve(const int neighbors);
 
@@ -110,27 +88,30 @@ class ConwayCell : public AbstractCell {
          * O(1) in space
          * O(1) in time
          * 
-         * If the other cell diagonally or otherwise one away
-         * then it is a neighbor
-         * @param myrow is the row position of this cell
-         * @param mycol is the col position of this cell
-         * @param n_row is the row position of neighbor cell
-         * @param n_col is the col position of neighbor cell
-         * @return true if cell diagonally or otherwise one away
-         * then return true
+         * @param 
+         * @return 
          */
         bool isNeighbor(int myrow, int mycol, int n_row, int n_col);
 
         /**
          * O(1) in space
          * O(1) in time
-         * return the appropriate symbol for Conway Cell. Either
-         * '*' or '.' 
-         *
-         * @return '*' if cell is alive and '.' if dead
+         * 
+         * @param 
+         * @return 
          */   
         char write(void) const;
 
+        /**
+         * O(1) in space
+         * O(1) in time
+         * 
+         * @param 
+         * @return 
+         */
+        // ConwayCell* clone () const {
+        //     return new ConwayCell(*this);
+        // }
 };
 
 class FredkinCell : public AbstractCell {
@@ -142,8 +123,8 @@ class FredkinCell : public AbstractCell {
          * O(1) in space
          * O(1) in time
          * 
-         * Default constructor for Fredkin Cell.
-         * Initialize age to 0 and alive to false.
+         * @param 
+         * @return 
          */
         FredkinCell() : 
             AbstractCell(), age(0) 
@@ -152,25 +133,18 @@ class FredkinCell : public AbstractCell {
         /**
          * O(1) in space
          * O(1) in time
-         *
-         * Constructor for Fredkin Cell.
-         * Initialize age to 0 and alive to appropriate
-         * value for char c
-         *
-         * @param c is either '0' which sets alive to true
-         * or '-' which sets alive to false
+         * 
+         * @param 
+         * @return 
          */
         FredkinCell(const char c);
 
         /**
          * O(1) in space
          * O(1) in time
-         *
-         * Follow the rules of Fredkin Cell:
-         *  a dead cell becomes a live cell, if 1 or 3 neighbors are alive
-         *  a live cell becomes a dead cell, if 0, 2, or 4 neighbors are alive
          * 
-         * @param neighbors is the number of neighbors around this Cell 
+         * @param 
+         * @return 
          */
         void evolve(const int neighbors);
 
@@ -178,15 +152,8 @@ class FredkinCell : public AbstractCell {
          * O(1) in space
          * O(1) in time
          * 
-         * If the other cell NORTH, SOUTH, EAST, or WEST 
-         * then it is a neighbor
-         *
-         * @param myrow is the row position of this cell
-         * @param mycol is the col position of this cell
-         * @param n_row is the row position of neighbor cell
-         * @param n_col is the col position of neighbor cell
-         * @return true if NORTH, SOUTH, EAST, or WEST otherwise
-         * false
+         * @param 
+         * @return 
          */
         bool isNeighbor(int myrow, int mycol, int n_row, int n_col);
 
@@ -194,24 +161,28 @@ class FredkinCell : public AbstractCell {
          * O(1) in space
          * O(1) in time
          * 
-         * if alive and age is between 0 to 9 then return char of age
-         * else if alive return '+'
-         * else return '-'
-         * 
-         * @return a char that is either 0-9, '-', '+' based on age
-         * and alive data members
+         * @param 
+         * @return 
          */
         char write(void) const;
-
 
         /**
          * O(1) in space
          * O(1) in time
          * 
-         * checks to see if the current Fredkin Cell should
-         * be transformed to a Conway Cell
+         * @param 
+         * @return 
+         */
+        // FredkinCell* clone () const {
+        //     return new FredkinCell(*this);
+        // }
+
+        /**
+         * O(1) in space
+         * O(1) in time
          * 
-         * @return true if age is 2
+         * @param 
+         * @return 
          */
         bool turnConway(void) const;
 };
@@ -226,9 +197,8 @@ class Cell {
          * O(1) in space
          * O(1) in time
          * 
-         * Default constructor for Cell
-         * Initialize cell to a dead Fredkin Cell,
-         * alive to false, and type to FREDKIN
+         * @param 
+         * @return 
          */
         Cell(void);
 
@@ -236,12 +206,8 @@ class Cell {
          * O(1) in space
          * O(1) in time
          * 
-         * Default constructor for Cell
-         * Initialize cell to a dead Fredkin Cell,
-         * alive to false, and type to FREDKIN
-         *
-         * @param c is a char that only be '0' or '*'
-         * otherwise an error is thrown
+         * @param 
+         * @return 
          */
         Cell(const char c);
 
@@ -249,35 +215,26 @@ class Cell {
          * O(1) in space
          * O(1) in time
          * 
-         * If Fredkin cell is alive and age is 2 then
-         * convert cell to a Conway cell.
-         * Otherwise follow cell's corresponding rule
-         * 
-         * @param neighbors is the number of neighbors around
-         * this cell
+         * @param 
+         * @return 
          */
         void evolve(const int neighbors);
 
         /**
          * O(1) in space
          * O(1) in time
-         * calls the this cell's isNeighbor
          * 
-         * @param myrow is the row position of this cell
-         * @param mycol is the col position of this cell
-         * @param n_row is the row position of neighbor cell
-         * @param n_col is the col position of neighbor cell
-         * @return if other cell is a neighbor to this cell
+         * @param 
+         * @return 
          */
         bool isNeighbor(int myrow, int mycol, int n_row, int n_col);
   
         /**
          * O(1) in space
          * O(1) in time
-         *
-         * call this cell's write method
          * 
-         * @return this cell's corresponding symbol
+         * @param 
+         * @return 
          */      
         char write(void) const;
 
@@ -285,9 +242,8 @@ class Cell {
          * O(1) in space
          * O(1) in time
          * 
-         * call the abstract class implementation
-         * of isAlive
-         * @return status which is ALIVE if alive is true else DEAD
+         * @param 
+         * @return 
          */
         status isAlive(void) const;
 };
@@ -324,13 +280,11 @@ class Life {
         int col;
 
         /**
-         * O(N) in space
-         * O(N) in time
+         * O(1) in space
+         * O(1) in time
          * 
-         * Read the istream and get each char.
-         * Add a new cell to cellGrid
-         * 
-         * @param in is the input stream
+         * @param 
+         * @return 
          */
         void read(std::istream& in) {
             char c;
@@ -345,10 +299,8 @@ class Life {
          * O(1) in space
          * O(1) in time
          * 
-         * Writes all the cell in the grid to an output stream
-         *
-         * @param the output stream to write to
-         * @return output stream that has been written to
+         * @param 
+         * @return 
          */
         std::ostream& write(std::ostream& out) const {
             int count = 0;
@@ -358,6 +310,7 @@ class Life {
                 if (count % col == 0)
                     out << std::endl;
             }
+            out << std::endl;
             return out;
         }
 
@@ -366,11 +319,8 @@ class Life {
          * O(1) in space
          * O(1) in time
          * 
-         * Initialize row and col to r and c, respectively,
-         * and initalize cellGrida and neighborGrid
-         *
-         * @param r is the number of rows in the grid
-         * @param c is the number of columns in the grid
+         * @param 
+         * @return 
          */
         Life(int r, int c) : row(r), col(c) {
             cellGrid = std::vector<T>(0);
@@ -381,9 +331,8 @@ class Life {
          * O(1) in space
          * O(1) in time
          * 
-         * Iterate through each cell, update the number of neighbors
-         * in the neighborGrid vector, then iterate through again
-         * evolving each creature.
+         * @param 
+         * @return 
          */
         void simulate() {
             for (int i = 0; i < row * col; i++) {
@@ -396,7 +345,7 @@ class Life {
 
         /**
          * O(1) in space
-         * O(n) in time
+         * O(1) in time
          * 
          * @param 
          * @return 
@@ -493,8 +442,8 @@ class Life {
          * @param 
          * @return 
          */
-        T* begin() {
-            return &cellGrid[0];
+        T& begin() {
+            return cellGrid.begin();
         }
 
         /**
@@ -504,7 +453,7 @@ class Life {
          * @param 
          * @return 
          */
-        T* end() {
-            return &cellGrid[row * col];
+        T& end() {
+            return cellGrid.end();
         }
 };
