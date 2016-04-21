@@ -324,6 +324,9 @@ class Life {
         FRIEND_TEST(LifeFixture, writeTest1);
         FRIEND_TEST(LifeFixture, writeTest2);
         FRIEND_TEST(LifeFixture, writeTest3);
+        FRIEND_TEST(LifeFixture, operatorReadTest1);
+        FRIEND_TEST(LifeFixture, operatorReadTest2);
+        FRIEND_TEST(LifeFixture, operatorReadTest3);
         std::vector<T> cellGrid;
         std::vector<int> neighborGrid;
         int row;

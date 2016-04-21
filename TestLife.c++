@@ -501,64 +501,64 @@ TEST(CellFixture, isAliveTest3) {
 // Life
 // ----
 
-TEST(LifeFixture, operator>>Test1) {
+TEST(LifeFixture, operatorReadTest1) {
     Life<ConwayCell> life(2, 2);
     istringstream in(".*.*");
-    life.read(in);
+    in >> life;
     ASSERT_EQ(4, life.cellGrid.size());
 }
 
-TEST(LifeFixture, operator>>Test2) {
+TEST(LifeFixture, operatorReadTest2) {
     Life<FredkinCell> life(3, 2);
     istringstream in("--00--");
-    life.read(in);
+    in >> life;
     ASSERT_EQ(6, life.cellGrid.size());
 }
 
-TEST(LifeFixture, operator>>Test3) {
+TEST(LifeFixture, operatorReadTest3) {
     Life<Cell> life(4, 4);
     istringstream in("---00---00----");
-    life.read(in);
+    in >> life;
     ASSERT_EQ(16, life.cellGrid.size());
 }
 
-TEST(LifeFixture, operator<<Test1) {
+TEST(LifeFixture, operatorWriteTest1) {
     Life<Cell> life(4, 4);
     istringstream in("---00---00------");
     // read input stream into life
     in >> life;
     ostringstream out;
     // write output into out stream
-    life.write(out);
+    out << life;
     // compare string with output string
     ASSERT_EQ("---0\n0---\n00--\n----\n", out.str());
 }
 
-TEST(LifeFixture, operator<<Test2) {
+TEST(LifeFixture, operatorWriteTest2) {
     Life<FredkinCell> life(4, 4);
     istringstream in("-----00--00-----");
     // read input stream into life
     in >> life;
     ostringstream out;
     // write output into out stream
-    life.write(out);
+    out << life;
     // compare string with output string
     ASSERT_EQ("----\n-00-\n-00-\n----\n", out.str());
     life.simulate();
     // clears output stream
     out.str("");
-    life.write(out);
+    out << life;
     ASSERT_EQ("-00-\n0--0\n0--0\n-00-\n", out.str());
 }
 
-TEST(LifeFixture, operator<<Test3) {
+TEST(LifeFixture, operatorWriteTest3) {
     Life<ConwayCell> life(3, 3);
     istringstream in("...***...");
     // read input stream into life
     in >> life;
     ostringstream out;
     // write output into out stream
-    life.write(out);
+    out << life;
     // compare string with output string
     ASSERT_EQ("...\n***\n...\n", out.str());
 }
@@ -925,4 +925,3 @@ TEST(LifeFixture, endTest3) {
     // stays dead FredkinCell
     ASSERT_EQ('-', cell->write());
 }
-
