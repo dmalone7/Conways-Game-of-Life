@@ -27,6 +27,10 @@ void ConwayCell::evolve(int neighbors) {
 bool ConwayCell::isNeighbor(int myrow, int mycol, int n_row, int n_col) {
 	assert(myrow >= 0 && mycol >= 0);
 	assert(n_row >= 0 && n_col >= 0);
+
+	if (abs(myrow - n_row) > 1 || abs(mycol - n_col) > 1)
+		return false;
+	
 	int val = abs(myrow - n_row) + abs(mycol - n_col);
 	return val == 1 || val == 2;
 }

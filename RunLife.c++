@@ -38,7 +38,7 @@ int main () {
         for (int i = 0; i <= 12; i++) {
             int population = life.findPopulation();
             cout << "Generation = " << i << ", Population = " << population << "." << endl;
-            cout << life;
+            cout << life << endl;
             life.simulate();
         }
     }
@@ -61,7 +61,7 @@ int main () {
             if (i % 4 == 0) {
                 int population = life.findPopulation();
                 cout << "Generation = " << i << ", Population = " << population << "." << endl;
-                cout << life;
+                cout << life << endl;
             }
             
             life.simulate();
@@ -91,22 +91,22 @@ int main () {
             if (i < 10) {
                 int population = life.findPopulation();
                 cout << "Generation = " << i << ", Population = " << population << "." << endl;
-                cout << life;
+                cout << life << endl;
             }
             if (i == 283) {
                 int population = life.findPopulation();
                 cout << "Generation = " << i << ", Population = " << population << "." << endl;
-                cout << life;         
+                cout << life << endl;         
             }
             if (i == 323) {
                 int population = life.findPopulation();
                 cout << "Generation = " << i << ", Population = " << population << "." << endl;
-                cout << life;
+                cout << life << endl;
             }
             if (i == 2500) {
                 int population = life.findPopulation();
                 cout << "Generation = " << i << ", Population = " << population << "." << endl;
-                cout << life;
+                cout << life << endl;
             }
 
             life.simulate();
@@ -130,7 +130,7 @@ int main () {
         for (int i = 0; i <= 5; i++) {
             int population = life.findPopulation();
             cout << "Generation = " << i << ", Population = " << population << "." << endl;
-            cout << life;
+            cout << life << endl;
             life.simulate();
         }
     }
@@ -154,6 +154,8 @@ int main () {
             cout << "Generation = " << i << ", Population = " << population << "." << endl;
             cout << life;
             life.simulate();
+            if (i < 5)
+                cout << endl;
         }
     }
 

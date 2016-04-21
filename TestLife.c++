@@ -40,12 +40,11 @@ TEST(ConwayCellFixture,charConstrutorTest2) {
 TEST(ConwayCellFixture,charConstrutorTest3) {
     try {
         ConwayCell cell('c');
-        ASSERT_EQ('.', cell.write());
+        ASSERT_TRUE(false);
     }
     catch (runtime_error re)
     {
-        ConwayCell cell('.');
-        ASSERT_EQ('.', cell.write());
+        ASSERT_FALSE(false);
     }
 }
 
@@ -75,7 +74,7 @@ TEST(ConwayCellFixture, evolveTest4) {
 
 TEST(ConwayCellFixture, isNeighborTest1) {
     ConwayCell cell('*');
-    bool b = cell.isNeighbor(0, 0, 2, 1);
+    bool b = cell.isNeighbor(0, 0, 2, 0);
     ASSERT_FALSE(b);
 }
 
@@ -484,21 +483,51 @@ TEST(LifeFixture, constructorTest3) {
 }
 
 TEST(LifeFixture, simulateTest1) {
+    // 3x3 Grid of ConwayCells
     Life<ConwayCell> life(3, 3);
     istringstream in(".*.\n.*.\n.*.");
     in >> life;
+    ostringstream out;
+    out << life;
+    // Blinker, oscillates between two states
+    ASSERT_EQ(".*.\n.*.\n.*.\n", out.str());
+    life.simulate(3);
+    // clears ostringstream
+    out.str("");
+    out << life;
+    ASSERT_EQ("...\n***\n...\n", out.str());
 }
 
 TEST(LifeFixture, simulateTest2) {
+    // 3x3 Grid of FredkinCells
     Life<FredkinCell> life(3, 3);
     istringstream in("-0-\n---\n---");
     in >> life;
+    ostringstream out;
+    out << life;
+    ASSERT_EQ("-0-\n---\n---\n", out.str());
+    // simulate 3 turns
+    life.simulate(3);
+    // clears ostringstream
+    out.str("");
+    out << life;
+    ASSERT_EQ("0-0\n---\n0-0\n", out.str());
 }
 
 TEST(LifeFixture, simulateTest3) {
-    Life<FredkinCell> life(2, 2);
-    istringstream in("0-\n-0");
+    // 3x2 Grid of Cells
+    Life<Cell> life(3, 2);
+    istringstream in("-0\n--\n0-");
     in >> life;
+    ostringstream out;
+    out << life;
+    ASSERT_EQ("-0\n--\n0-\n", out.str());
+    // simulate 6 turns
+    life.simulate(6);
+    // clears ostringstream
+    out.str("");
+    out << life;
+    ASSERT_EQ("*-\n--\n-*\n", out.str());
 }
 
 TEST(LifeFixture, getNumNeighborsTest1) {
@@ -527,56 +556,143 @@ TEST(LifeFixture, getNumNeighborsTest2) {
 }
 
 TEST(LifeFixture, getNuMNeighborsTest3) {
-    Life<Cell> life(4, 4);
-    istringstream in("----\n-00-\n-00-\n----");
+    Life<Cell> life(2, 2);
+    istringstream in("0-\n-0");
     in >> life;
-}
-
-/*TEST(LifeFixture, findPopulationTest1) {
-
+    // corner cells alive
+    ASSERT_EQ(0, life.getNumNeighbors(0, 0));
+    ASSERT_EQ(2, life.getNumNeighbors(1, 0));
+    ASSERT_EQ(2, life.getNumNeighbors(0, 1));
+    ASSERT_EQ(0, life.getNumNeighbors(1, 1));
+    // all cells are dead
+    life.simulate();
+    ASSERT_EQ(0, life.getNumNeighbors(0, 0));
+    ASSERT_EQ(0, life.getNumNeighbors(1, 0));
+    ASSERT_EQ(0, life.getNumNeighbors(0, 1));
+    ASSERT_EQ(0, life.getNumNeighbors(1, 1));
 }
 
 TEST(LifeFixture, findPopulationTest1) {
-    
+    Life<FredkinCell> life(3, 3);
+    istringstream in("000\n000\n000");
+    in >> life;
+    ASSERT_EQ(9, life.findPopulation());
+    life.simulate();
+    ASSERT_EQ(4, life.findPopulation());
 }
 
-TEST(LifeFixture, findPopulationTest1) {
-    
+TEST(LifeFixture, findPopulationTest2) {
+    Life<ConwayCell> life(3, 3);
+    // Still life
+    istringstream in("**.\n*.*\n.*.");
+    in >> life;
+    ASSERT_EQ(5, life.findPopulation());
+    life.simulate();
+    ASSERT_EQ(5, life.findPopulation());
+    // stays the same forever
+    life.simulate(1000);
+    ASSERT_EQ(5, life.findPopulation());
+}
+
+TEST(LifeFixture, findPopulationTest3) {
+    Life<ConwayCell> life(4, 4);
+    // Beacon oscillator
+    istringstream in("**..\n**..\n..**\n..**");
+    in >> life;
+    ASSERT_EQ(8, life.findPopulation());
+    life.simulate();
+    ASSERT_EQ(6, life.findPopulation());
+    // switches back and forth between 6 and 8 population
+    life.simulate();
+    ASSERT_EQ(8, life.findPopulation());
+    life.simulate(100);
+    ASSERT_EQ(8, life.findPopulation());
 }
 
 TEST(LifeFixture, atTest1) {
+    Life<ConwayCell> life(3, 3);
+    istringstream in("...\n.*.\n...");
+    in >> life;
+    ConwayCell live = life.at(1, 1);
+    ConwayCell dead = life.at(0, 1);
 
+    ASSERT_EQ(ALIVE, live.isAlive());
+    ASSERT_EQ(DEAD, dead.isAlive());
 }
 
 TEST(LifeFixture, atTest2) {
-    
+    Life<FredkinCell> life(3, 3);
+    istringstream in("-0-\n-0-\n-0-");
+    in >> life;
+    FredkinCell cell = life.at(1,1);
+    ASSERT_EQ(ALIVE, cell.isAlive());
+    life.simulate();
+    cell = life.at(1,1);
+    ASSERT_EQ(DEAD, cell.isAlive());
 }
 
 TEST(LifeFixture, atTest3) {
-    
+    Life<Cell> life(4, 4);
+    istringstream in("----\n-00-\n-00-\n----");
+    in >> life;
+    // 
+    Cell cell = life.at(0, 1);
+    ASSERT_EQ(DEAD, cell.isAlive());
+    life.simulate(5);
+    cell = life.at(0, 1);
+    ASSERT_EQ(ALIVE, cell.isAlive());
+    ASSERT_EQ('*', cell.write());
 }
 
 TEST(LifeFixture, beginTest1) {
+    Life<ConwayCell> life(3, 3);
+    istringstream in("...\n.*.\n...");
+    in >> life;
 
+    ConwayCell *cell = life.begin();
+    ASSERT_EQ('.', cell->write());
 }
 
 TEST(LifeFixture, beginTest2) {
-    
+    Life<FredkinCell> life(3, 3);
+    istringstream in("---\n0-0\n---");
+    in >> life;
+
+    FredkinCell *cell = life.begin();
+    ASSERT_EQ('-', cell->write());
+    life.simulate();
+    ASSERT_EQ('0', cell->write());
 }
 
 TEST(LifeFixture, beginTest3) {
-    
+    Life<Cell> life(3, 3);
+    istringstream in("---\n0-0\n---");
+    in >> life;
+
+    FredkinCell *cell = life.begin();
+    ASSERT_EQ('-', cell->write());
+    life.simulate(5);
+    ASSERT_EQ('-', cell->write());
 }
 
 TEST(LifeFixture, endTest1) {
+    Life<ConwayCell> life(3, 3);
+    istringstream in("...\n.*.\n...");
+    in >> life;
 
+    ConwayCell *cell = life.begin();
+    ASSERT_EQ('.', cell->write());
 }
 
 TEST(LifeFixture, endTest2) {
-    
+        Life<FredkinCell> life(3, 3);
+    istringstream in("---\n0-0\n---");
+    in >> life;
+    ASSERT_EQ('-', life.begin().write());
+    life.simulate();
+    ASSERT_EQ('0', life.begin().write());
 }
 
 TEST(LifeFixture, endTest3) {
     
 }
-*/
