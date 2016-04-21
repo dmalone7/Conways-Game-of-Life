@@ -16,7 +16,7 @@ addons:
       - valgrind
 
 notifications:
-  slack: cs371p-spring-2016:hfZyy8qJRONDrYRUQ3pnvJwW
+  slack: cs371p-spring-2016:X48eyhhHrikDUPbZNo5zrK9r
 
 install:
     - mkdir gtest

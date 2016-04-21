@@ -1,0 +1,237 @@
+==29759== Memcheck, a memory error detector
+==29759== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==29759== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
+==29759== Command: ./TestLife
+==29759== 
+Running main() from gtest_main.cc
+[==========] Running 92 tests from 5 test cases.
+[----------] Global test environment set-up.
+[----------] 3 tests from AbstractCellFixture
+[ RUN      ] AbstractCellFixture.isAliveTest1
+[       OK ] AbstractCellFixture.isAliveTest1 (7 ms)
+[ RUN      ] AbstractCellFixture.isAliveTest2
+[       OK ] AbstractCellFixture.isAliveTest2 (2 ms)
+[ RUN      ] AbstractCellFixture.isAliveTest3
+[       OK ] AbstractCellFixture.isAliveTest3 (2 ms)
+[----------] 3 tests from AbstractCellFixture (19 ms total)
+
+[----------] 16 tests from ConwayCellFixture
+[ RUN      ] ConwayCellFixture.defaultConstrutorTest1
+[       OK ] ConwayCellFixture.defaultConstrutorTest1 (2 ms)
+[ RUN      ] ConwayCellFixture.defaultConstrutorTest2
+[       OK ] ConwayCellFixture.defaultConstrutorTest2 (3 ms)
+[ RUN      ] ConwayCellFixture.defaultConstrutorTest3
+[       OK ] ConwayCellFixture.defaultConstrutorTest3 (2 ms)
+[ RUN      ] ConwayCellFixture.charConstrutorTest1
+[       OK ] ConwayCellFixture.charConstrutorTest1 (2 ms)
+[ RUN      ] ConwayCellFixture.charConstrutorTest2
+[       OK ] ConwayCellFixture.charConstrutorTest2 (1 ms)
+[ RUN      ] ConwayCellFixture.charConstrutorTest3
+[       OK ] ConwayCellFixture.charConstrutorTest3 (33 ms)
+[ RUN      ] ConwayCellFixture.evolveTest1
+[       OK ] ConwayCellFixture.evolveTest1 (2 ms)
+[ RUN      ] ConwayCellFixture.evolveTest2
+[       OK ] ConwayCellFixture.evolveTest2 (2 ms)
+[ RUN      ] ConwayCellFixture.evolveTest3
+[       OK ] ConwayCellFixture.evolveTest3 (2 ms)
+[ RUN      ] ConwayCellFixture.evolveTest4
+[       OK ] ConwayCellFixture.evolveTest4 (2 ms)
+[ RUN      ] ConwayCellFixture.isNeighborTest1
+[       OK ] ConwayCellFixture.isNeighborTest1 (2 ms)
+[ RUN      ] ConwayCellFixture.isNeighborTest2
+[       OK ] ConwayCellFixture.isNeighborTest2 (3 ms)
+[ RUN      ] ConwayCellFixture.isNeighborTest3
+[       OK ] ConwayCellFixture.isNeighborTest3 (2 ms)
+[ RUN      ] ConwayCellFixture.writeTest1
+[       OK ] ConwayCellFixture.writeTest1 (1 ms)
+[ RUN      ] ConwayCellFixture.writeTest2
+[       OK ] ConwayCellFixture.writeTest2 (2 ms)
+[ RUN      ] ConwayCellFixture.writeTest3
+[       OK ] ConwayCellFixture.writeTest3 (2 ms)
+[----------] 16 tests from ConwayCellFixture (64 ms total)
+
+[----------] 19 tests from FredkinCellFixture
+[ RUN      ] FredkinCellFixture.defaultConstrutorTest1
+[       OK ] FredkinCellFixture.defaultConstrutorTest1 (2 ms)
+[ RUN      ] FredkinCellFixture.defaultConstrutorTest2
+[       OK ] FredkinCellFixture.defaultConstrutorTest2 (2 ms)
+[ RUN      ] FredkinCellFixture.defaultConstrutorTest3
+[       OK ] FredkinCellFixture.defaultConstrutorTest3 (2 ms)
+[ RUN      ] FredkinCellFixture.charConstrutorTest1
+[       OK ] FredkinCellFixture.charConstrutorTest1 (4 ms)
+[ RUN      ] FredkinCellFixture.charConstrutorTest2
+[       OK ] FredkinCellFixture.charConstrutorTest2 (2 ms)
+[ RUN      ] FredkinCellFixture.charConstrutorTest3
+[       OK ] FredkinCellFixture.charConstrutorTest3 (2 ms)
+[ RUN      ] FredkinCellFixture.evolveTest1
+[       OK ] FredkinCellFixture.evolveTest1 (2 ms)
+[ RUN      ] FredkinCellFixture.evolveTest2
+[       OK ] FredkinCellFixture.evolveTest2 (2 ms)
+[ RUN      ] FredkinCellFixture.evolveTest3
+[       OK ] FredkinCellFixture.evolveTest3 (2 ms)
+[ RUN      ] FredkinCellFixture.evolveTest4
+[       OK ] FredkinCellFixture.evolveTest4 (2 ms)
+[ RUN      ] FredkinCellFixture.isNeighborTest1
+[       OK ] FredkinCellFixture.isNeighborTest1 (2 ms)
+[ RUN      ] FredkinCellFixture.isNeighborTest2
+[       OK ] FredkinCellFixture.isNeighborTest2 (2 ms)
+[ RUN      ] FredkinCellFixture.isNeighborTest3
+[       OK ] FredkinCellFixture.isNeighborTest3 (2 ms)
+[ RUN      ] FredkinCellFixture.writeTest1
+[       OK ] FredkinCellFixture.writeTest1 (2 ms)
+[ RUN      ] FredkinCellFixture.writeTest2
+[       OK ] FredkinCellFixture.writeTest2 (1 ms)
+[ RUN      ] FredkinCellFixture.writeTest3
+[       OK ] FredkinCellFixture.writeTest3 (3 ms)
+[ RUN      ] FredkinCellFixture.turnConwayTest1
+[       OK ] FredkinCellFixture.turnConwayTest1 (4 ms)
+[ RUN      ] FredkinCellFixture.turnConwayTest2
+[       OK ] FredkinCellFixture.turnConwayTest2 (3 ms)
+[ RUN      ] FredkinCellFixture.turnConwayTest3
+[       OK ] FredkinCellFixture.turnConwayTest3 (4 ms)
+[----------] 19 tests from FredkinCellFixture (46 ms total)
+
+[----------] 18 tests from CellFixture
+[ RUN      ] CellFixture.defaultConstructorTest1
+[       OK ] CellFixture.defaultConstructorTest1 (2 ms)
+[ RUN      ] CellFixture.defaultConstructorTest2
+[       OK ] CellFixture.defaultConstructorTest2 (1 ms)
+[ RUN      ] CellFixture.defaultConstructorTest3
+[       OK ] CellFixture.defaultConstructorTest3 (3 ms)
+[ RUN      ] CellFixture.charConstructorTest1
+[       OK ] CellFixture.charConstructorTest1 (3 ms)
+[ RUN      ] CellFixture.charConstructorTest2
+[       OK ] CellFixture.charConstructorTest2 (1 ms)
+[ RUN      ] CellFixture.charConstructorTest3
+[       OK ] CellFixture.charConstructorTest3 (3 ms)
+[ RUN      ] CellFixture.evolveTest1
+[       OK ] CellFixture.evolveTest1 (3 ms)
+[ RUN      ] CellFixture.evolveTest2
+[       OK ] CellFixture.evolveTest2 (4 ms)
+[ RUN      ] CellFixture.evolveTest3
+[       OK ] CellFixture.evolveTest3 (4 ms)
+[ RUN      ] CellFixture.isNeighborTest1
+[       OK ] CellFixture.isNeighborTest1 (2 ms)
+[ RUN      ] CellFixture.isNeighborTest2
+[       OK ] CellFixture.isNeighborTest2 (2 ms)
+[ RUN      ] CellFixture.isNeighborTest3
+[       OK ] CellFixture.isNeighborTest3 (3 ms)
+[ RUN      ] CellFixture.writeTest1
+[       OK ] CellFixture.writeTest1 (2 ms)
+[ RUN      ] CellFixture.writeTest2
+[       OK ] CellFixture.writeTest2 (2 ms)
+[ RUN      ] CellFixture.writeTest3
+[       OK ] CellFixture.writeTest3 (3 ms)
+[ RUN      ] CellFixture.isAliveTest1
+[       OK ] CellFixture.isAliveTest1 (2 ms)
+[ RUN      ] CellFixture.isAliveTest2
+[       OK ] CellFixture.isAliveTest2 (2 ms)
+[ RUN      ] CellFixture.isAliveTest3
+[       OK ] CellFixture.isAliveTest3 (3 ms)
+[----------] 18 tests from CellFixture (47 ms total)
+
+[----------] 36 tests from LifeFixture
+[ RUN      ] LifeFixture.operatorReadTest1
+[       OK ] LifeFixture.operatorReadTest1 (35 ms)
+[ RUN      ] LifeFixture.operatorReadTest2
+[       OK ] LifeFixture.operatorReadTest2 (23 ms)
+[ RUN      ] LifeFixture.operatorReadTest3
+[       OK ] LifeFixture.operatorReadTest3 (22 ms)
+[ RUN      ] LifeFixture.operatorWriteTest1
+[       OK ] LifeFixture.operatorWriteTest1 (7 ms)
+[ RUN      ] LifeFixture.operatorWriteTest2
+[       OK ] LifeFixture.operatorWriteTest2 (9 ms)
+[ RUN      ] LifeFixture.operatorWriteTest3
+[       OK ] LifeFixture.operatorWriteTest3 (4 ms)
+[ RUN      ] LifeFixture.readTest1
+[       OK ] LifeFixture.readTest1 (2 ms)
+[ RUN      ] LifeFixture.readTest2
+[       OK ] LifeFixture.readTest2 (2 ms)
+[ RUN      ] LifeFixture.readTest3
+[       OK ] LifeFixture.readTest3 (3 ms)
+[ RUN      ] LifeFixture.writeTest1
+[       OK ] LifeFixture.writeTest1 (3 ms)
+[ RUN      ] LifeFixture.writeTest2
+[       OK ] LifeFixture.writeTest2 (4 ms)
+[ RUN      ] LifeFixture.writeTest3
+[       OK ] LifeFixture.writeTest3 (2 ms)
+[ RUN      ] LifeFixture.constructorTest1
+[       OK ] LifeFixture.constructorTest1 (3 ms)
+[ RUN      ] LifeFixture.constructorTest2
+[       OK ] LifeFixture.constructorTest2 (2 ms)
+[ RUN      ] LifeFixture.constructorTest3
+[       OK ] LifeFixture.constructorTest3 (2 ms)
+[ RUN      ] LifeFixture.simulateTest1
+[       OK ] LifeFixture.simulateTest1 (8 ms)
+[ RUN      ] LifeFixture.simulateTest2
+[       OK ] LifeFixture.simulateTest2 (4 ms)
+[ RUN      ] LifeFixture.simulateTest3
+[       OK ] LifeFixture.simulateTest3 (8 ms)
+[ RUN      ] LifeFixture.simulateIntTest1
+[       OK ] LifeFixture.simulateIntTest1 (4 ms)
+[ RUN      ] LifeFixture.simulateIntTest2
+[       OK ] LifeFixture.simulateIntTest2 (4 ms)
+[ RUN      ] LifeFixture.simulateIntTest3
+[       OK ] LifeFixture.simulateIntTest3 (4 ms)
+[ RUN      ] LifeFixture.getNumNeighborsTest1
+[       OK ] LifeFixture.getNumNeighborsTest1 (5 ms)
+[ RUN      ] LifeFixture.getNumNeighborsTest2
+[       OK ] LifeFixture.getNumNeighborsTest2 (8 ms)
+[ RUN      ] LifeFixture.getNuMNeighborsTest3
+[       OK ] LifeFixture.getNuMNeighborsTest3 (8 ms)
+[ RUN      ] LifeFixture.findPopulationTest1
+[       OK ] LifeFixture.findPopulationTest1 (4 ms)
+[ RUN      ] LifeFixture.findPopulationTest2
+[       OK ] LifeFixture.findPopulationTest2 (30 ms)
+[ RUN      ] LifeFixture.findPopulationTest3
+[       OK ] LifeFixture.findPopulationTest3 (9 ms)
+[ RUN      ] LifeFixture.atTest1
+[       OK ] LifeFixture.atTest1 (4 ms)
+[ RUN      ] LifeFixture.atTest2
+[       OK ] LifeFixture.atTest2 (4 ms)
+[ RUN      ] LifeFixture.atTest3
+[       OK ] LifeFixture.atTest3 (5 ms)
+[ RUN      ] LifeFixture.beginTest1
+[       OK ] LifeFixture.beginTest1 (3 ms)
+[ RUN      ] LifeFixture.beginTest2
+[       OK ] LifeFixture.beginTest2 (3 ms)
+[ RUN      ] LifeFixture.beginTest3
+[       OK ] LifeFixture.beginTest3 (3 ms)
+[ RUN      ] LifeFixture.endTest1
+[       OK ] LifeFixture.endTest1 (2 ms)
+[ RUN      ] LifeFixture.endTest2
+[       OK ] LifeFixture.endTest2 (4 ms)
+[ RUN      ] LifeFixture.endTest3
+[       OK ] LifeFixture.endTest3 (3 ms)
+[----------] 36 tests from LifeFixture (256 ms total)
+
+[----------] Global test environment tear-down
+[==========] 92 tests from 5 test cases ran. (456 ms total)
+[  PASSED  ] 92 tests.
+==29759== 
+==29759== HEAP SUMMARY:
+==29759==     in use at exit: 2,080 bytes in 130 blocks
+==29759==   total heap usage: 2,178 allocs, 2,048 frees, 232,945 bytes allocated
+==29759== 
+==29759== LEAK SUMMARY:
+==29759==    definitely lost: 2,080 bytes in 130 blocks
+==29759==    indirectly lost: 0 bytes in 0 blocks
+==29759==      possibly lost: 0 bytes in 0 blocks
+==29759==    still reachable: 0 bytes in 0 blocks
+==29759==         suppressed: 0 bytes in 0 blocks
+==29759== Rerun with --leak-check=full to see details of leaked memory
+==29759== 
+==29759== For counts of detected and suppressed errors, rerun with: -v
+==29759== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+File 'Life.c++'
+Lines executed:100.00% of 79
+Branches executed:100.00% of 128
+Taken at least once:70.31% of 128
+Calls executed:59.02% of 61
+Creating 'Life.c++.gcov'
+File 'TestLife.c++'
+Lines executed:98.77% of 568
+Branches executed:63.00% of 3654
+Taken at least once:31.55% of 3654
+Calls executed:50.86% of 3915
+Creating 'TestLife.c++.gcov'
