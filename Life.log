@@ -1,0 +1,182 @@
+commit bf7879055b6abd62a13675fe436af67fb223fa47
+Author: Nishanth Pradeep <nishp21@cs.utexas.edu>
+Date:   Thu Apr 21 17:35:50 2016 -0500
+
+    new TestLife.out
+
+commit 5bd9a6a1fab1d6b3d1f3bb6444852b6e3003c1a3
+Merge: 5d3224f fd1f23d
+Author: David Malone <dmalone7@cs.utexas.edu>
+Date:   Thu Apr 21 17:25:42 2016 -0500
+
+    Merge branch 'dev' of https://github.com/dmalone7/cs371p-life into dev
+    
+    merge conflicts
+
+commit 5d3224f84164b5a349e2330083af0c3a19f72f72
+Author: David Malone <dmalone7@cs.utexas.edu>
+Date:   Thu Apr 21 17:25:13 2016 -0500
+
+    created life uml diagram
+
+commit fd1f23d69bb44b662d4081afc5ec312f0e07ad1f
+Author: Nishanth Pradeep <nishp21@cs.utexas.edu>
+Date:   Thu Apr 21 16:59:24 2016 -0500
+
+    Added html documentation
+
+commit 3d562a60986bf6f2c1ad7b67279c59c746445939
+Author: David Malone <dmalone7@cs.utexas.edu>
+Date:   Thu Apr 21 12:26:19 2016 -0500
+
+    fixed travis.yml file
+
+commit 7c4ca0b07a7577036992c0ceb8d231775c2d385c
+Author: David Malone <dmalone7@cs.utexas.edu>
+Date:   Wed Apr 20 20:52:56 2016 -0500
+
+    finish unit tests for current methods in Life.h
+
+commit aac20793939879108e120be19aecc4da0e3d27b0
+Author: David Malone <dmalone7@cs.utexas.edu>
+Date:   Wed Apr 20 20:35:45 2016 -0500
+
+    created more unit tests
+
+commit d777e9b8bc292951bde19e941cb77072f346d85f
+Merge: 447c3ad 811a023
+Author: Nishanth Pradeep <nishp21@cs.utexas.edu>
+Date:   Wed Apr 20 19:36:50 2016 -0500
+
+    Merge branch 'dev' of https://github.com/dmalone7/cs371p-life into dev
+    Added more comments and assertions to Life.c++
+
+commit 811a0230778ed841c8ae1c86648f9e4cb7b761a2
+Author: David Malone <dmalone7@cs.utexas.edu>
+Date:   Wed Apr 20 19:36:36 2016 -0500
+
+    more unit tests
+
+commit 447c3ada952182498ff120efafb25d79b52692be
+Author: Nishanth Pradeep <nishp21@cs.utexas.edu>
+Date:   Wed Apr 20 19:35:23 2016 -0500
+
+    Added some more comments and assertions to Life.c++
+
+commit 770d0db91514ca8eaca5728a39eb0499223fa7c0
+Merge: 72587f2 0740970
+Author: Nishanth Pradeep <nishp21@cs.utexas.edu>
+Date:   Wed Apr 20 19:27:59 2016 -0500
+
+    Merge branch 'dev' of https://github.com/dmalone7/cs371p-life into dev
+    David is fixing unit tests
+
+commit 07409700399585b812309487c9128f912719ae67
+Author: David Malone <dmalone7@cs.utexas.edu>
+Date:   Wed Apr 20 19:27:42 2016 -0500
+
+    fixing errors with unit tests
+
+commit 72587f2f76e0bcaa31ddcc99123acc7b0dae14ad
+Author: Nishanth Pradeep <nishp21@cs.utexas.edu>
+Date:   Wed Apr 20 19:27:07 2016 -0500
+
+    Finished comments in Life.h
+
+commit 20bb9756d84508bcb0c782e63b41a67a97b1a2c5
+Merge: 557e42a 4997073
+Author: David Malone <dmalone7@cs.utexas.edu>
+Date:   Wed Apr 20 19:20:58 2016 -0500
+
+    Merge branch 'dev' of https://github.com/dmalone7/cs371p-life into dev
+
+commit 557e42a66fdbfe1a8a822933ab045cd0b24e1588
+Author: David Malone <dmalone7@cs.utexas.edu>
+Date:   Wed Apr 20 19:20:49 2016 -0500
+
+    changed begin and end in life
+
+commit d617765d6e10311a57657ac112756e4198909a6f
+Author: David Malone <dmalone7@cs.utexas.edu>
+Date:   Wed Apr 20 19:19:50 2016 -0500
+
+    created more test cases and fixed run output
+
+commit 49970735f6d57c1ee0135b844552a9c486fcc550
+Author: Nishanth Pradeep <nishp21@cs.utexas.edu>
+Date:   Wed Apr 20 19:17:54 2016 -0500
+
+    Saved Life.h
+
+commit e16a64e86f37ccad84f7167e634b929bbc3ad0d2
+Author: Nishanth Pradeep <nishp21@cs.utexas.edu>
+Date:   Wed Apr 20 19:15:58 2016 -0500
+
+    Commented most of Life.h
+
+commit 3533c5f799b399d43c10b2800129c112d4a7416e
+Author: David Malone <dmalone7@cs.utexas.edu>
+Date:   Wed Apr 20 17:43:56 2016 -0500
+
+    creating more unit tests
+
+commit 8907942d9cc359f26db733da8f0c9bc6e2195d81
+Author: David Malone <dmalone7@cs.utexas.edu>
+Date:   Wed Apr 20 15:48:26 2016 -0500
+
+    print now returns an ostream for testing
+
+commit 5cd4ff3b12f55c3da15c5d985e5b3aec25408c9e
+Author: David Malone <dmalone7@cs.utexas.edu>
+Date:   Wed Apr 20 12:53:04 2016 -0500
+
+    fixed run harness output to correct specifications
+
+commit bfc6e7b157de8ec2795f91e8de36bd836d38ad88
+Author: David Malone <dmalone7@cs.utexas.edu>
+Date:   Tue Apr 19 21:36:48 2016 -0500
+
+    finished implementation of simulate
+
+commit 9147b2436e095ca5869f5322d7b804c1bf4d2e2b
+Merge: 88ad823 ddcd97d
+Author: David Malone <dmalone7@cs.utexas.edu>
+Date:   Tue Apr 19 17:39:13 2016 -0500
+
+    Merge branch 'dev' of https://github.com/dmalone7/cs371p-life into dev
+
+commit 88ad823669b90ee895d617bff39b8b73ea112c03
+Author: David Malone <dmalone7@cs.utexas.edu>
+Date:   Tue Apr 19 17:38:03 2016 -0500
+
+    created isAlive() and read/print
+
+commit ddcd97db5c05edb37e91a8dd4fc9cbd0df3bab4f
+Author: dmalone7 <maloned101@utexas.edu>
+Date:   Tue Apr 19 16:28:19 2016 -0500
+
+    created .gitignore
+
+commit 74132b9bee76729c122c26f82f3ff9118fb45a3b
+Author: dmalone7 <maloned101@utexas.edu>
+Date:   Tue Apr 19 16:27:25 2016 -0500
+
+    Update README.md
+
+commit 109fc80ca558fc2033726ee67a7953d40f3078ca
+Author: David Malone <dmalone7@cs.utexas.edu>
+Date:   Tue Apr 19 16:24:43 2016 -0500
+
+    added TestLife.c++
+
+commit dcb475daaf16df262bb7257284a242083517e1f6
+Author: David Malone <dmalone7@cs.utexas.edu>
+Date:   Tue Apr 12 12:31:38 2016 -0500
+
+    created basic files
+
+commit 1042feac9ead0ad4d484bd8ee5c232368098e959
+Author: dmalone7 <maloned101@utexas.edu>
+Date:   Tue Apr 12 12:16:33 2016 -0500
+
+    Initial commit
