@@ -398,8 +398,7 @@ class Life {
          * O(1) in space
          * O(n) in time
          * 
-         * @param 
-         * @return 
+         * Call simulate rounds times
          */
         void simulate(int rounds) {
             for (int i = 0; i < rounds; i++) {
