@@ -514,6 +514,6 @@ class Life {
          * @return pointer to the end of the vector gridCell
          */
         T* end() {
-            return &cellGrid[row * col];
+            return (&cellGrid[row * col-1]);
         }
 };

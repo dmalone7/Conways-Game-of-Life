@@ -670,18 +670,20 @@ TEST(LifeFixture, beginTest3) {
     in >> life;
 
     Cell *cell = life.begin();
+    // starts off alive FredkinCell
     ASSERT_EQ('0', cell->write());
     life.simulate(5);
-    ASSERT_EQ('-', cell->write());
+    // turns into dead ConwayCell
+    ASSERT_EQ('.', cell->write());
 }
 
 TEST(LifeFixture, endTest1) {
     Life<ConwayCell> life(3, 3);
-    istringstream in("...\n.*.\n...");
+    istringstream in("...\n...\n..*");
     in >> life;
 
-    ConwayCell *cell = life.begin();
-    ASSERT_EQ('.', cell->write());
+    ConwayCell *cell = life.end();
+    ASSERT_EQ('*', cell->write());
 }
 
 TEST(LifeFixture, endTest2) {
@@ -702,8 +704,8 @@ TEST(LifeFixture, endTest3) {
     istringstream in("0--\n0-0\n0--");
     in >> life;
 
-    Cell *cell = life.begin();
+    Cell *cell = life.end();
+    // starts off dead
+    cout << life;
     ASSERT_EQ('-', cell->write());
-    life.simulate(5);
-    ASSERT_EQ('0', cell->write()); 
 }
