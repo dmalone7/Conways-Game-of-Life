@@ -28,10 +28,12 @@ bool ConwayCell::isNeighbor(int myrow, int mycol, int n_row, int n_col) {
 	assert(myrow >= 0 && mycol >= 0);
 	assert(n_row >= 0 && n_col >= 0);
 
+	//more than two spots away from current cell either horizontally or vertically
 	if (abs(myrow - n_row) > 1 || abs(mycol - n_col) > 1)
 		return false;
 	
 	int val = abs(myrow - n_row) + abs(mycol - n_col);
+	assert(val >= 0);
 	return val == 1 || val == 2;
 }
 
@@ -54,7 +56,7 @@ FredkinCell::FredkinCell(const char c) : age(0) {
 
 void FredkinCell::evolve(const int neighbors) {
 	assert(neighbors >= 0 && neighbors <= 8);
-
+	assert(age >= 0);
 	// a dead cell becomes a live cell, if 1 or 3 neighbors are alive
 	if (!alive && (neighbors == 1 || neighbors == 3))
 		alive = true;
@@ -64,12 +66,14 @@ void FredkinCell::evolve(const int neighbors) {
 	// increase age if still alive
 	else if (alive)
 		++age;
+	assert(age >= 0);
 }
 
 bool FredkinCell::isNeighbor(int myrow, int mycol, int n_row, int n_col) {
 	assert(myrow >= 0 && mycol >= 0);
 	assert(n_row >= 0 && n_col >= 0);
 	int val = abs(myrow - n_row) + abs(mycol - n_col);
+	assert(val >= 0);
 	return val == 1;
 }
 
