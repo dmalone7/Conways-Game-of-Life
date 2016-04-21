@@ -105,10 +105,16 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a67b36a0d2eeedc5cfa72669c1dee3aa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5bdb8de532ca7d8f02074b6097e9115f"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLife.html#a5bdb8de532ca7d8f02074b6097e9115f">at</a> (int r, int c)</td></tr>
 <tr class="separator:a5bdb8de532ca7d8f02074b6097e9115f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08407d3a45c831018c88d638722d522b"><td class="memItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLife.html#a08407d3a45c831018c88d638722d522b">at</a> (int r, int c) const </td></tr>
+<tr class="separator:a08407d3a45c831018c88d638722d522b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a36e4b9ac081175232efb7367d26a936e"><td class="memItemLeft" align="right" valign="top">T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLife.html#a36e4b9ac081175232efb7367d26a936e">begin</a> ()</td></tr>
 <tr class="separator:a36e4b9ac081175232efb7367d26a936e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c7b1d65c9088f48b4fa15a064ac9251"><td class="memItemLeft" align="right" valign="top">const T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLife.html#a6c7b1d65c9088f48b4fa15a064ac9251">begin</a> () const </td></tr>
+<tr class="separator:a6c7b1d65c9088f48b4fa15a064ac9251"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4deb0d02eea91bc4b772ac2a7cec006"><td class="memItemLeft" align="right" valign="top">T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLife.html#af4deb0d02eea91bc4b772ac2a7cec006">end</a> ()</td></tr>
 <tr class="separator:af4deb0d02eea91bc4b772ac2a7cec006"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96577172d609149515929382cec82ef2"><td class="memItemLeft" align="right" valign="top">const T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLife.html#a96577172d609149515929382cec82ef2">end</a> () const </td></tr>
+<tr class="separator:a96577172d609149515929382cec82ef2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
@@ -210,6 +216,52 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a class="anchor" id="a08407d3a45c831018c88d638722d522b"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const T&amp; <a class="el" href="classLife.html">Life</a>&lt; T &gt;::at </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>r</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>c</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>O(1) in space O(1) in time</p>
+<p>Get the cell at (r,c)</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">r</td><td>is the row position of the cell </td></tr>
+    <tr><td class="paramname">c</td><td>is the column postion of the cell </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the desired cell </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a36e4b9ac081175232efb7367d26a936e"></a>
 <div class="memitem">
 <div class="memproto">
@@ -237,6 +289,34 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a class="anchor" id="a6c7b1d65c9088f48b4fa15a064ac9251"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const T* <a class="el" href="classLife.html">Life</a>&lt; T &gt;::begin </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>O(1) in space O(1) in time</p>
+<p>Constant </p>
+<dl class="section return"><dt>Returns</dt><dd>pointer to the first cell </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="af4deb0d02eea91bc4b772ac2a7cec006"></a>
 <div class="memitem">
 <div class="memproto">
@@ -260,6 +340,34 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 <p>O(1) in space O(1) in time</p>
+<dl class="section return"><dt>Returns</dt><dd>pointer to the end of the vector gridCell </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a96577172d609149515929382cec82ef2"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const T* <a class="el" href="classLife.html">Life</a>&lt; T &gt;::end </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>O(1) in space O(1) in time</p>
+<p>Constant </p>
 <dl class="section return"><dt>Returns</dt><dd>pointer to the end of the vector gridCell </dd></dl>
 
 </div>
@@ -492,7 +600,7 @@ template&lt;typename T &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 21 2016 16:57:13 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 21 2016 18:46:05 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -510,12 +510,36 @@ class Life {
          * O(1) in space
          * O(1) in time
          * 
+         * Get the cell at (r,c)
+         *
+         * @param r is the row position of the cell
+         * @param c is the column postion of the cell
+         * @return the desired cell
+         */
+        const T& at(int r, int c) const {
+            return const_cast<Life<T>*>(this)->at(r,c);
+        }
+
+        /**
+         * O(1) in space
+         * O(1) in time
+         *
          * @return pointer to the first cell
          */
         T* begin() {
             return &cellGrid[0];
         }
 
+        /**
+         * O(1) in space
+         * O(1) in time
+         *
+         * Constant
+         * @return pointer to the first cell
+         */
+        const T* begin() const {
+            return const_cast<Life<T>*>(this)->begin();
+        }
         /**
          * O(1) in space
          * O(1) in time
@@ -526,4 +550,16 @@ class Life {
             T* p = &cellGrid[row*col - 1];
             return ++p;
         }
+
+        /**
+         * O(1) in space
+         * O(1) in time
+         *
+         * Constant
+         * @return pointer to the end of the vector gridCell
+         */
+        const T* end() const {
+            return const_cast<Life<T>*>(this)->end();
+        }
+
 };

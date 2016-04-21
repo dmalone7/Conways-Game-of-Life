@@ -305,17 +305,31 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;            <span class="keywordflow">return</span> cellGrid.at(r * col + c);</div>
 <div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;        }</div>
 <div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;</div>
-<div class="line"><a name="l00515"></a><span class="lineno"><a class="line" href="classLife.html#a36e4b9ac081175232efb7367d26a936e">  515</a></span>&#160;        T* <a class="code" href="classLife.html#a36e4b9ac081175232efb7367d26a936e">begin</a>() {</div>
-<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;            <span class="keywordflow">return</span> &amp;cellGrid[0];</div>
-<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;        }</div>
-<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;</div>
-<div class="line"><a name="l00525"></a><span class="lineno"><a class="line" href="classLife.html#af4deb0d02eea91bc4b772ac2a7cec006">  525</a></span>&#160;        T* <a class="code" href="classLife.html#af4deb0d02eea91bc4b772ac2a7cec006">end</a>() {</div>
-<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;            T* p = &amp;cellGrid[row*col - 1];</div>
-<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;            <span class="keywordflow">return</span> ++p;</div>
-<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;        }</div>
-<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;};</div>
+<div class="line"><a name="l00519"></a><span class="lineno"><a class="line" href="classLife.html#a08407d3a45c831018c88d638722d522b">  519</a></span>&#160;        <span class="keyword">const</span> T&amp; <a class="code" href="classLife.html#a08407d3a45c831018c88d638722d522b">at</a>(<span class="keywordtype">int</span> r, <span class="keywordtype">int</span> c)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">const_cast&lt;</span><a class="code" href="classLife.html">Life&lt;T&gt;</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classLife.html#a5bdb8de532ca7d8f02074b6097e9115f">at</a>(r,c);</div>
+<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;        }</div>
+<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;</div>
+<div class="line"><a name="l00529"></a><span class="lineno"><a class="line" href="classLife.html#a36e4b9ac081175232efb7367d26a936e">  529</a></span>&#160;        T* <a class="code" href="classLife.html#a36e4b9ac081175232efb7367d26a936e">begin</a>() {</div>
+<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;            <span class="keywordflow">return</span> &amp;cellGrid[0];</div>
+<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;        }</div>
+<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;</div>
+<div class="line"><a name="l00540"></a><span class="lineno"><a class="line" href="classLife.html#a6c7b1d65c9088f48b4fa15a064ac9251">  540</a></span>&#160;        <span class="keyword">const</span> T* <a class="code" href="classLife.html#a6c7b1d65c9088f48b4fa15a064ac9251">begin</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">const_cast&lt;</span><a class="code" href="classLife.html">Life&lt;T&gt;</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classLife.html#a36e4b9ac081175232efb7367d26a936e">begin</a>();</div>
+<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;        }</div>
+<div class="line"><a name="l00549"></a><span class="lineno"><a class="line" href="classLife.html#af4deb0d02eea91bc4b772ac2a7cec006">  549</a></span>&#160;        T* <a class="code" href="classLife.html#af4deb0d02eea91bc4b772ac2a7cec006">end</a>() {</div>
+<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;            T* p = &amp;cellGrid[row*col - 1];</div>
+<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;            <span class="keywordflow">return</span> ++p;</div>
+<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;        }</div>
+<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;</div>
+<div class="line"><a name="l00561"></a><span class="lineno"><a class="line" href="classLife.html#a96577172d609149515929382cec82ef2">  561</a></span>&#160;        <span class="keyword">const</span> T* <a class="code" href="classLife.html#a96577172d609149515929382cec82ef2">end</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">const_cast&lt;</span><a class="code" href="classLife.html">Life&lt;T&gt;</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classLife.html#af4deb0d02eea91bc4b772ac2a7cec006">end</a>();</div>
+<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;        }</div>
+<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;</div>
+<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;};</div>
 <div class="ttc" id="classCell_html"><div class="ttname"><a href="classCell.html">Cell</a></div><div class="ttdef"><b>Definition:</b> Life.h:219</div></div>
-<div class="ttc" id="classLife_html_af4deb0d02eea91bc4b772ac2a7cec006"><div class="ttname"><a href="classLife.html#af4deb0d02eea91bc4b772ac2a7cec006">Life::end</a></div><div class="ttdeci">T * end()</div><div class="ttdef"><b>Definition:</b> Life.h:525</div></div>
+<div class="ttc" id="classLife_html_af4deb0d02eea91bc4b772ac2a7cec006"><div class="ttname"><a href="classLife.html#af4deb0d02eea91bc4b772ac2a7cec006">Life::end</a></div><div class="ttdeci">T * end()</div><div class="ttdef"><b>Definition:</b> Life.h:549</div></div>
+<div class="ttc" id="classLife_html_a6c7b1d65c9088f48b4fa15a064ac9251"><div class="ttname"><a href="classLife.html#a6c7b1d65c9088f48b4fa15a064ac9251">Life::begin</a></div><div class="ttdeci">const T * begin() const </div><div class="ttdef"><b>Definition:</b> Life.h:540</div></div>
+<div class="ttc" id="classLife_html_a08407d3a45c831018c88d638722d522b"><div class="ttname"><a href="classLife.html#a08407d3a45c831018c88d638722d522b">Life::at</a></div><div class="ttdeci">const T &amp; at(int r, int c) const </div><div class="ttdef"><b>Definition:</b> Life.h:519</div></div>
 <div class="ttc" id="classCell_html_a2036d5b2c6bfe3962040fce2410d5b2e"><div class="ttname"><a href="classCell.html#a2036d5b2c6bfe3962040fce2410d5b2e">Cell::write</a></div><div class="ttdeci">char write(void) const </div><div class="ttdef"><b>Definition:</b> Life.c++:122</div></div>
 <div class="ttc" id="classConwayCell_html"><div class="ttname"><a href="classConwayCell.html">ConwayCell</a></div><div class="ttdef"><b>Definition:</b> Life.h:74</div></div>
 <div class="ttc" id="classFredkinCell_html_ac5bd5726da496a3b3363d9c1b57dccc2"><div class="ttname"><a href="classFredkinCell.html#ac5bd5726da496a3b3363d9c1b57dccc2">FredkinCell::FredkinCell</a></div><div class="ttdeci">FredkinCell()</div><div class="ttdef"><b>Definition:</b> Life.h:148</div></div>
@@ -324,6 +338,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="classConwayCell_html_ae91331839ce95d8d3882cb8ea8e0b87a"><div class="ttname"><a href="classConwayCell.html#ae91331839ce95d8d3882cb8ea8e0b87a">ConwayCell::evolve</a></div><div class="ttdeci">void evolve(const int neighbors)</div><div class="ttdef"><b>Definition:</b> Life.c++:17</div></div>
 <div class="ttc" id="classAbstractCell_html_acb4a116b1a007c03ce4e3644e6815a12"><div class="ttname"><a href="classAbstractCell.html#acb4a116b1a007c03ce4e3644e6815a12">AbstractCell::AbstractCell</a></div><div class="ttdeci">AbstractCell()</div><div class="ttdef"><b>Definition:</b> Life.h:29</div></div>
 <div class="ttc" id="classAbstractCell_html_a21e4c857aa797ec2ea4051c4eae8c22b"><div class="ttname"><a href="classAbstractCell.html#a21e4c857aa797ec2ea4051c4eae8c22b">AbstractCell::isAlive</a></div><div class="ttdeci">virtual status isAlive() const </div><div class="ttdef"><b>Definition:</b> Life.h:69</div></div>
+<div class="ttc" id="classLife_html_a96577172d609149515929382cec82ef2"><div class="ttname"><a href="classLife.html#a96577172d609149515929382cec82ef2">Life::end</a></div><div class="ttdeci">const T * end() const </div><div class="ttdef"><b>Definition:</b> Life.h:561</div></div>
 <div class="ttc" id="classFredkinCell_html_a73889c069a752aec9d56fa87243e8698"><div class="ttname"><a href="classFredkinCell.html#a73889c069a752aec9d56fa87243e8698">FredkinCell::evolve</a></div><div class="ttdeci">void evolve(const int neighbors)</div><div class="ttdef"><b>Definition:</b> Life.c++:57</div></div>
 <div class="ttc" id="classLife_html_afcaba6e9a06041447a81336de8001cfa"><div class="ttname"><a href="classLife.html#afcaba6e9a06041447a81336de8001cfa">Life::simulate</a></div><div class="ttdeci">void simulate()</div><div class="ttdef"><b>Definition:</b> Life.h:397</div></div>
 <div class="ttc" id="classAbstractCell_html_af14c9aacc0f348926a56c82d53aace17"><div class="ttname"><a href="classAbstractCell.html#af14c9aacc0f348926a56c82d53aace17">AbstractCell::evolve</a></div><div class="ttdeci">virtual void evolve(const int neighbors)=0</div></div>
@@ -347,11 +362,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="classAbstractCell_html_a4576179f57220c4342edd9b01563df63"><div class="ttname"><a href="classAbstractCell.html#a4576179f57220c4342edd9b01563df63">AbstractCell::~AbstractCell</a></div><div class="ttdeci">virtual ~AbstractCell()</div><div class="ttdef"><b>Definition:</b> Life.h:36</div></div>
 <div class="ttc" id="classCell_html_a734ebd002d2cb97a9693366ec80e03b2"><div class="ttname"><a href="classCell.html#a734ebd002d2cb97a9693366ec80e03b2">Cell::isNeighbor</a></div><div class="ttdeci">bool isNeighbor(int myrow, int mycol, int n_row, int n_col)</div><div class="ttdef"><b>Definition:</b> Life.c++:116</div></div>
 <div class="ttc" id="classLife_html_a5bdb8de532ca7d8f02074b6097e9115f"><div class="ttname"><a href="classLife.html#a5bdb8de532ca7d8f02074b6097e9115f">Life::at</a></div><div class="ttdeci">T &amp; at(int r, int c)</div><div class="ttdef"><b>Definition:</b> Life.h:505</div></div>
-<div class="ttc" id="classLife_html_a36e4b9ac081175232efb7367d26a936e"><div class="ttname"><a href="classLife.html#a36e4b9ac081175232efb7367d26a936e">Life::begin</a></div><div class="ttdeci">T * begin()</div><div class="ttdef"><b>Definition:</b> Life.h:515</div></div>
+<div class="ttc" id="classLife_html_a36e4b9ac081175232efb7367d26a936e"><div class="ttname"><a href="classLife.html#a36e4b9ac081175232efb7367d26a936e">Life::begin</a></div><div class="ttdeci">T * begin()</div><div class="ttdef"><b>Definition:</b> Life.h:529</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 21 2016 16:57:13 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 21 2016 18:46:04 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
