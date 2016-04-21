@@ -399,6 +399,9 @@ class Life {
          * O(n) in time
          * 
          * Call simulate rounds times
+         * 
+         * @param rounds is the number of times that
+         * simulate() will be called
          */
         void simulate(int rounds) {
             for (int i = 0; i < rounds; i++) {
@@ -410,8 +413,12 @@ class Life {
          * O(1) in space
          * O(1) in time
          * 
-         * @param 
-         * @return 
+         * Takes the care of all corner cases.
+         * Checks all adjacent cells and counts the number of neighbors
+         *
+         * @param r is the row position in the grid
+         * @param c is the column position in the grid
+         * @return is the number of neighbors for cell at (r,c)
          */
         int getNumNeighbors(int r, int c) {
             int directions = 8;
@@ -461,10 +468,12 @@ class Life {
 
         /**
          * O(1) in space
-         * O(1) in time
+         * O(N) in time
          * 
-         * @param 
-         * @return 
+         * Iterate through each cell in grid and count the number
+         * of alive cells
+         *
+         * @return the number of alive cells in grid
          */
         int findPopulation() {
             int count = 0;
@@ -478,8 +487,11 @@ class Life {
          * O(1) in space
          * O(1) in time
          * 
-         * @param 
-         * @return 
+         * Get the cell at (r,c)
+         *
+         * @param r is the row position of the cell
+         * @param c is the column postion of the cell
+         * @return the desired cell
          */
         T& at(int r, int c) {
             return cellGrid.at(r * col + c);
@@ -489,8 +501,7 @@ class Life {
          * O(1) in space
          * O(1) in time
          * 
-         * @param 
-         * @return 
+         * @return pointer to the first cell
          */
         T* begin() {
             return &cellGrid[0];
@@ -500,8 +511,7 @@ class Life {
          * O(1) in space
          * O(1) in time
          * 
-         * @param 
-         * @return 
+         * @return pointer to the end of the vector gridCell
          */
         T* end() {
             return &cellGrid[row * col];
