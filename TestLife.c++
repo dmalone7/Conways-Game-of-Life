@@ -666,11 +666,11 @@ TEST(LifeFixture, beginTest2) {
 
 TEST(LifeFixture, beginTest3) {
     Life<Cell> life(3, 3);
-    istringstream in("---\n0-0\n---");
+    istringstream in("0--\n0-0\n0--");
     in >> life;
 
-    FredkinCell *cell = life.begin();
-    ASSERT_EQ('-', cell->write());
+    Cell *cell = life.begin();
+    ASSERT_EQ('0', cell->write());
     life.simulate(5);
     ASSERT_EQ('-', cell->write());
 }
@@ -685,14 +685,25 @@ TEST(LifeFixture, endTest1) {
 }
 
 TEST(LifeFixture, endTest2) {
-        Life<FredkinCell> life(3, 3);
+    Life<FredkinCell> life(3, 3);
     istringstream in("---\n0-0\n---");
     in >> life;
-    ASSERT_EQ('-', life.begin().write());
+
+    FredkinCell *cell = life.end();
+    // end starts dead
+    ASSERT_EQ('-', cell->write());
     life.simulate();
-    ASSERT_EQ('0', life.begin().write());
+    // ends alive
+    ASSERT_EQ('0', cell->write());
 }
 
 TEST(LifeFixture, endTest3) {
-    
+    Life<Cell> life(3, 3);
+    istringstream in("0--\n0-0\n0--");
+    in >> life;
+
+    Cell *cell = life.begin();
+    ASSERT_EQ('-', cell->write());
+    life.simulate(5);
+    ASSERT_EQ('0', cell->write()); 
 }
