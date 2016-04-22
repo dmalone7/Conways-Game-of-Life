@@ -1,3 +1,21 @@
+commit fceb2cce2f916b6a793ed89436464f43cb8e27b2
+Author: David Malone <dmalone7@cs.utexas.edu>
+Date:   Fri Apr 22 16:31:38 2016 -0500
+
+    remade UML for new methods
+
+commit 6bcdc0de32d2c33c1a71140e0ccc2f70ffc54dcf
+Author: David Malone <dmalone7@cs.utexas.edu>
+Date:   Fri Apr 22 16:15:33 2016 -0500
+
+    fixed memory leak and wrote more unit tests
+
+commit 1533db0431f69efd5868a37034142046ea231deb
+Author: David Malone <dmalone7@cs.utexas.edu>
+Date:   Thu Apr 21 18:48:29 2016 -0500
+
+    remade Life.log after last commit
+
 commit a4ddb6a3a4b0ad836f71d01f08fdf6b4bfa58aa8
 Author: David Malone <dmalone7@cs.utexas.edu>
 Date:   Thu Apr 21 18:47:08 2016 -0500
