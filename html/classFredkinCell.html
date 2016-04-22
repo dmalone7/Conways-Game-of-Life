@@ -71,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -84,6 +84,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="classFredkinCell-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">FredkinCell Class Reference</div>  </div>
@@ -101,10 +102,10 @@ Inheritance diagram for FredkinCell:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac5bd5726da496a3b3363d9c1b57dccc2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFredkinCell.html#ac5bd5726da496a3b3363d9c1b57dccc2">FredkinCell</a> ()</td></tr>
-<tr class="separator:ac5bd5726da496a3b3363d9c1b57dccc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6fee0733138706b0dbc00195a1caff7e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFredkinCell.html#a6fee0733138706b0dbc00195a1caff7e">FredkinCell</a> (const char c)</td></tr>
 <tr class="separator:a6fee0733138706b0dbc00195a1caff7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05d7cd1308b23d514e207317fdf06235"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classFredkinCell.html">FredkinCell</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFredkinCell.html#a05d7cd1308b23d514e207317fdf06235">clone</a> () const </td></tr>
+<tr class="separator:a05d7cd1308b23d514e207317fdf06235"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a73889c069a752aec9d56fa87243e8698"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFredkinCell.html#a73889c069a752aec9d56fa87243e8698">evolve</a> (const int neighbors)</td></tr>
 <tr class="separator:a73889c069a752aec9d56fa87243e8698"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ae8a69c80666e216b71cde787c4c9c8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFredkinCell.html#a0ae8a69c80666e216b71cde787c4c9c8">isNeighbor</a> (int myrow, int mycol, int n_row, int n_col)</td></tr>
@@ -121,6 +122,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a21e4c857aa797ec2ea4051c4eae8c22b inherit pub_methods_classAbstractCell"><td class="memItemLeft" align="right" valign="top">virtual status&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractCell.html#a21e4c857aa797ec2ea4051c4eae8c22b">isAlive</a> () const </td></tr>
 <tr class="separator:a21e4c857aa797ec2ea4051c4eae8c22b inherit pub_methods_classAbstractCell"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a755dea54626a9742e4dad6a03755706b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFredkinCell.html#a755dea54626a9742e4dad6a03755706b">age</a></td></tr>
+<tr class="separator:a755dea54626a9742e4dad6a03755706b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_attribs_classAbstractCell"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classAbstractCell')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classAbstractCell.html">AbstractCell</a></td></tr>
@@ -129,31 +135,6 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>alive</b></td></tr>
 <tr class="separator:aa92e42d5bb67f3249d8e2dde2c3228e7 inherit pro_attribs_classAbstractCell"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ac5bd5726da496a3b3363d9c1b57dccc2"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">FredkinCell::FredkinCell </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>O(1) in space O(1) in time</p>
-<p>Default constructor for Fredkin <a class="el" href="classCell.html">Cell</a>. Initialize age to 0 and alive to false. </p>
-
-</div>
-</div>
 <a class="anchor" id="a6fee0733138706b0dbc00195a1caff7e"></a>
 <div class="memitem">
 <div class="memproto">
@@ -179,6 +160,34 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>alive</b></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a05d7cd1308b23d514e207317fdf06235"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classFredkinCell.html">FredkinCell</a> * FredkinCell::clone </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>O(1) in space O(1) in time</p>
+<p>Creates a new <a class="el" href="classFredkinCell.html">FredkinCell</a> that's a copy of this <a class="el" href="classFredkinCell.html">FredkinCell</a></p>
+<dl class="section return"><dt>Returns</dt><dd>pointer to copy of this cell </dd></dl>
+
+<p>Implements <a class="el" href="classAbstractCell.html#a1a95a7ea92b3503e2f042170b6320354">AbstractCell</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a73889c069a752aec9d56fa87243e8698"></a>
 <div class="memitem">
 <div class="memproto">
@@ -321,6 +330,21 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>alive</b></td></tr>
 
 </div>
 </div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a755dea54626a9742e4dad6a03755706b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FredkinCell::age</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>O(1) in space O(1) in time</p>
+<p>Default constructor for Fredkin <a class="el" href="classCell.html">Cell</a>. Initialize age to 0 and alive to false. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="Life_8h_source.html">Life.h</a></li>
 <li>Life.c++</li>
@@ -328,7 +352,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>alive</b></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 21 2016 18:46:05 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Apr 22 2016 16:14:45 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

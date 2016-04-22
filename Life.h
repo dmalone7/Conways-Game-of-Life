@@ -38,6 +38,12 @@ class AbstractCell {
 
         /**
         * abstract method
+        * @return pointer to copy of this cell
+        */
+        virtual AbstractCell* clone() const = 0;
+
+        /**
+        * abstract method
         * @param neighbors taking the number of numbers around cell
         */
         virtual void evolve(const int neighbors) = 0;
@@ -97,6 +103,17 @@ class ConwayCell : public AbstractCell {
         /**
          * O(1) in space
          * O(1) in time
+         *
+         * Creates a new ConwayCell that's a copy
+         * of this ConwayCell
+         *
+         * @return pointer to copy of this cell
+         */
+        ConwayCell* clone() const;
+
+        /**
+         * O(1) in space
+         * O(1) in time
          * 
          * Follows the rules of conway cell.
          *  a dead cell becomes a live cell, if exactly 3 neighbors are alive
@@ -130,12 +147,11 @@ class ConwayCell : public AbstractCell {
          * @return '*' if cell is alive and '.' if dead
          */   
         char write(void) const;
-
 };
 
 class FredkinCell : public AbstractCell {
     private:
-        int age;
+        // int age;
 
     public:
         /**
@@ -145,6 +161,8 @@ class FredkinCell : public AbstractCell {
          * Default constructor for Fredkin Cell.
          * Initialize age to 0 and alive to false.
          */
+         int age;
+
         FredkinCell() : 
             AbstractCell(), age(0) 
             {}
@@ -161,6 +179,17 @@ class FredkinCell : public AbstractCell {
          * or '-' which sets alive to false
          */
         FredkinCell(const char c);
+
+        /**
+         * O(1) in space
+         * O(1) in time
+         *
+         * Creates a new FredkinCell that's a copy
+         * of this FredkinCell
+         *
+         * @return pointer to copy of this cell
+         */
+        FredkinCell* clone() const;
 
         /**
          * O(1) in space
@@ -218,6 +247,9 @@ class FredkinCell : public AbstractCell {
 
 class Cell {
     private:
+        FRIEND_TEST(CellFixture, copyConstructorTest1);
+        FRIEND_TEST(CellFixture, copyConstructorTest2);
+        FRIEND_TEST(CellFixture, copyConstructorTest3);
         AbstractCell *cell;
         cellType type;
 
@@ -244,6 +276,32 @@ class Cell {
          * otherwise an error is thrown
          */
         Cell(const char c);
+
+        /**
+         * O(1) in space
+         * O(1) in time
+         * 
+         * Copy constructor for Cell
+         * Clone cell to a dead Fredkin Cell,
+         * sets type to FREDKIN
+         *
+         * @param c is a reference to type Cell
+         */
+        Cell(const Cell& c) : 
+            cell(c.cell->clone()) {
+            type = FREDKIN;
+        }
+
+        /**
+         * O(1) in space
+         * O(1) in time
+         * 
+         * Destructor for Cell
+         * Deletes cell pointer
+         */
+        ~Cell() {
+            delete cell;
+        }
 
         /**
          * O(1) in space
@@ -327,6 +385,7 @@ class Life {
         FRIEND_TEST(LifeFixture, operatorReadTest1);
         FRIEND_TEST(LifeFixture, operatorReadTest2);
         FRIEND_TEST(LifeFixture, operatorReadTest3);
+
         std::vector<T> cellGrid;
         std::vector<int> neighborGrid;
         int row;
@@ -561,5 +620,4 @@ class Life {
         const T* end() const {
             return const_cast<Life<T>*>(this)->end();
         }
-
 };

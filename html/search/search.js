@@ -10,8 +10,9 @@ var indexSectionsWithContent =
   0: "abcefgilostw~",
   1: "acfl",
   2: "abcefgilstw~",
-  3: "o",
-  4: "c"
+  3: "a",
+  4: "o",
+  5: "c"
 };
 
 var indexSectionNames =
@@ -19,8 +20,9 @@ var indexSectionNames =
   0: "all",
   1: "classes",
   2: "functions",
-  3: "related",
-  4: "pages"
+  3: "variables",
+  4: "related",
+  5: "pages"
 };
 
 function convertToId(search)

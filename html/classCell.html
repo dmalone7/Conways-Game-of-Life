@@ -71,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -96,6 +96,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aab24f3f223f86c03968096edbd40a9f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a256f7039fe07cc43d2755222e0747bbd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCell.html#a256f7039fe07cc43d2755222e0747bbd">Cell</a> (const char c)</td></tr>
 <tr class="separator:a256f7039fe07cc43d2755222e0747bbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51f477d8039e209153054228a5792b0c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCell.html#a51f477d8039e209153054228a5792b0c">Cell</a> (const <a class="el" href="classCell.html">Cell</a> &amp;c)</td></tr>
+<tr class="separator:a51f477d8039e209153054228a5792b0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fa559f7a28e2b4336c6879ca09304d8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCell.html#a9fa559f7a28e2b4336c6879ca09304d8">~Cell</a> ()</td></tr>
+<tr class="separator:a9fa559f7a28e2b4336c6879ca09304d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac9ea016f7f6c7901cd0c130efc0ea4f7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCell.html#ac9ea016f7f6c7901cd0c130efc0ea4f7">evolve</a> (const int neighbors)</td></tr>
 <tr class="separator:ac9ea016f7f6c7901cd0c130efc0ea4f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a734ebd002d2cb97a9693366ec80e03b2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCell.html#a734ebd002d2cb97a9693366ec80e03b2">isNeighbor</a> (int myrow, int mycol, int n_row, int n_col)</td></tr>
@@ -145,6 +149,63 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a class="anchor" id="a51f477d8039e209153054228a5792b0c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Cell::Cell </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classCell.html">Cell</a> &amp;&#160;</td>
+          <td class="paramname"><em>c</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>O(1) in space O(1) in time</p>
+<p>Copy constructor for <a class="el" href="classCell.html">Cell</a> Clone cell to a dead Fredkin <a class="el" href="classCell.html">Cell</a>, sets type to FREDKIN</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">c</td><td>is a reference to type <a class="el" href="classCell.html">Cell</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a9fa559f7a28e2b4336c6879ca09304d8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Cell::~Cell </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>O(1) in space O(1) in time</p>
+<p>Destructor for <a class="el" href="classCell.html">Cell</a> Deletes cell pointer </p>
 
 </div>
 </div>
@@ -267,7 +328,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 21 2016 18:46:04 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Apr 22 2016 16:14:45 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

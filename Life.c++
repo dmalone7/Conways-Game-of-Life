@@ -14,6 +14,11 @@ ConwayCell::ConwayCell(const char c) {
 		throw std::runtime_error(std::string("Invalid char: ") + c);
 }
 
+ConwayCell* ConwayCell::clone() const { 
+	return new ConwayCell(*this); 
+}
+
+
 void ConwayCell::evolve(int neighbors) {
 	assert(neighbors >= 0 && neighbors <= 8);
 	// a dead cell becomes a live cell, if exactly 3 neighbors are alive
@@ -54,6 +59,10 @@ FredkinCell::FredkinCell(const char c) : age(0) {
 		throw std::runtime_error(std::string("Invalid char: ") + c);
 }
 
+FredkinCell* FredkinCell::clone() const { 
+	return new FredkinCell(*this); 
+}
+
 void FredkinCell::evolve(const int neighbors) {
 	assert(neighbors >= 0 && neighbors <= 8);
 	assert(age >= 0);
@@ -83,8 +92,8 @@ char FredkinCell::write() const {
 }
 
 bool FredkinCell::turnConway() const {
-	assert(age <= 2);
-	return age == 2;
+	// assert(age <= 2);
+	return age >= 2;
 }
 
 // ----
@@ -103,13 +112,18 @@ void Cell::evolve(int neighbors) {
 	assert(neighbors >= 0 && neighbors <= 8);
 	cell->evolve(neighbors);
 
+	// std::cout << "type: " << type << std::endl;
+
+// copy constructor has no notion of type right now
 	if (type == FREDKIN && static_cast<FredkinCell*>(cell)->turnConway()) {
-		// AbstractCell *nCell = new ConwayCell('*');
+		// std::cout << "mutating now!  ";
+		AbstractCell *nCell = new ConwayCell('*');
 		delete cell;
-    	// cell = nCell->clone();
-    	cell = new ConwayCell('*');
+    	cell = nCell->clone();
+    	// cell = new ConwayCell('*');
     	type = CONWAY;
-    	// delete nCell;
+    	// std::cout << "turning to conway: " << type << std::endl;
+    	delete nCell;
 	}
 }
 
@@ -128,7 +142,3 @@ status Cell::isAlive () const {
 	assert(cell != nullptr);
 	return cell->isAlive();
 }
-
-// ------------
-// Life
-// ------------

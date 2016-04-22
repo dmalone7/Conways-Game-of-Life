@@ -35,6 +35,9 @@ TEST(AbstractCellFixture, isAliveTest3) {
 // ConwayCell
 // ----------
 
+/**
+ * Constructors
+ */
 TEST(ConwayCellFixture, defaultConstrutorTest1) {
     ConwayCell cell;
     ASSERT_EQ('.', cell.write());
@@ -70,6 +73,53 @@ TEST(ConwayCellFixture,charConstrutorTest3) {
     {
         ASSERT_FALSE(false);
     }
+}
+
+/**
+ * Methods
+ */
+TEST(ConwayCellFixture, cloneTest1) {
+    ConwayCell *cell1 = new ConwayCell();
+    ConwayCell *cell2 = cell1->clone();
+    // both cells are equal and DEAD
+    ASSERT_EQ(DEAD, cell1->isAlive());
+    ASSERT_EQ(DEAD, cell2->isAlive());
+    ASSERT_EQ(cell1->write(), cell2->write());
+
+    delete cell1;
+    delete cell2;
+}
+
+TEST(ConwayCellFixture, cloneTest2) {
+    ConwayCell *cell1 = new ConwayCell('.');
+    ConwayCell *cell2 = cell1->clone();
+    // both cells are equal and DEAD
+    ASSERT_EQ(DEAD, cell1->isAlive());
+    ASSERT_EQ(DEAD, cell2->isAlive());
+    ASSERT_EQ(cell1->write(), cell2->write());
+    // cell1 becomes ALIVE, not equal anymore
+    cell1->evolve(3);
+    ASSERT_EQ(ALIVE, cell1->isAlive());
+    ASSERT_EQ(DEAD, cell2->isAlive());
+
+    delete cell1;
+    delete cell2;
+}
+
+TEST(ConwayCellFixture, cloneTest3) {
+    ConwayCell *cell1 = new ConwayCell();
+    ConwayCell *cell2 = cell1->clone();
+    // both cells are equal and DEAD
+    ASSERT_EQ(DEAD, cell1->isAlive());
+    ASSERT_EQ(DEAD, cell2->isAlive());
+    ASSERT_EQ(cell1->write(), cell2->write());
+    // cell2 becomes alive, nto equal anymore
+    cell2->evolve(3);
+    ASSERT_EQ('.', cell1->write());
+    ASSERT_EQ('*', cell2->write());
+
+    delete cell1;
+    delete cell2;
 }
 
 TEST(ConwayCellFixture, evolveTest1) {
@@ -133,6 +183,9 @@ TEST(ConwayCellFixture, writeTest3) {
 // FredkinCell
 // -----------
 
+/**
+ * Constructors
+ */
 TEST(FredkinCellFixture, defaultConstrutorTest1) {
     FredkinCell cell;
     ASSERT_EQ('-', cell.write());
@@ -174,6 +227,53 @@ TEST(FredkinCellFixture, charConstrutorTest2) {
 TEST(FredkinCellFixture, charConstrutorTest3) {
     FredkinCell cell('0');
     ASSERT_EQ('0', cell.write());
+}
+
+/**
+ * Methods
+ */
+TEST(FredkinCellFixture, cloneTest1) {
+    FredkinCell *cell1 = new FredkinCell();
+    FredkinCell *cell2 = cell1->clone();
+    // both cells are equal and DEAD
+    ASSERT_EQ(DEAD, cell1->isAlive());
+    ASSERT_EQ(DEAD, cell2->isAlive());
+    ASSERT_EQ(cell1->write(), cell2->write());
+
+    delete cell1;
+    delete cell2;
+}
+
+TEST(FredkinCellFixture, cloneTest2) {
+    FredkinCell *cell1 = new FredkinCell('0');
+    FredkinCell *cell2 = cell1->clone();
+    // both cells are equal and ALIVE
+    ASSERT_EQ(ALIVE, cell1->isAlive());
+    ASSERT_EQ(ALIVE, cell2->isAlive());
+    ASSERT_EQ(cell1->write(), cell2->write());
+    // cell1 becomes DEAD, not equal anymore
+    cell1->evolve(2);
+    ASSERT_EQ(DEAD, cell1->isAlive());
+    ASSERT_EQ(ALIVE, cell2->isAlive());
+
+    delete cell1;
+    delete cell2;
+}
+
+TEST(FredkinCellFixture, cloneTest3) {
+    FredkinCell *cell1 = new FredkinCell();
+    FredkinCell *cell2 = cell1->clone();
+    // both cells are equal and DEAD
+    ASSERT_EQ(DEAD, cell1->isAlive());
+    ASSERT_EQ(DEAD, cell2->isAlive());
+    ASSERT_EQ(cell1->write(), cell2->write());
+    // cell2 becomes ALIVE, not equal anymore
+    cell2->evolve(3);
+    ASSERT_EQ('0', cell2->write());
+    ASSERT_EQ('-', cell1->write());
+
+    delete cell1;
+    delete cell2;
 }
 
 //Test FredkinCell::evolve(const int neighbors)
@@ -294,7 +394,9 @@ TEST(FredkinCellFixture, turnConwayTest3) {
 // Cell
 // ----
 
-//Test Cell constructors
+/**
+ * Constructors
+ */
 //all intialize of Cell should be a dead Fredkin Cell
 TEST(CellFixture, defaultConstructorTest1) {
     Cell cell;
@@ -340,6 +442,51 @@ TEST(CellFixture, charConstructorTest3) {
     }
 }
 
+TEST(CellFixture, copyConstructorTest1) {
+    Cell cell1;
+    Cell cell2(cell1);
+    // both cells are type FREDKIN
+    ASSERT_EQ(FREDKIN, cell1.type);
+    ASSERT_EQ(FREDKIN, cell2.type);
+    // both cells are DEAD
+    ASSERT_EQ(DEAD, cell1.isAlive());
+    ASSERT_EQ(DEAD, cell2.isAlive());
+}
+
+TEST(CellFixture, copyConstructorTest2) {
+    Cell cell1('0');
+    Cell cell2(cell1);
+    // both cells are type FREDKIN
+    ASSERT_EQ(FREDKIN, cell1.type);
+    ASSERT_EQ(FREDKIN, cell2.type);
+    // both cells are ALIVE
+    ASSERT_EQ(ALIVE, cell1.isAlive());
+    ASSERT_EQ(ALIVE, cell2.isAlive());
+}
+
+TEST(CellFixture, copyConstructorTest3) {
+    Cell cell1('0');
+    Cell cell2(cell1);
+    // both cells are type FREDKIN
+    ASSERT_EQ(FREDKIN, cell1.type);
+    ASSERT_EQ(FREDKIN, cell2.type);
+    // both cells are ALIVE
+    ASSERT_EQ(ALIVE, cell1.isAlive());
+    ASSERT_EQ(ALIVE, cell2.isAlive());
+    // cell2 starts at age 0, FredkinCell
+    ASSERT_EQ('0', cell2.write());
+    // cell2 turns 1, FredkinCell
+    cell2.evolve(3);
+    ASSERT_EQ('1', cell2.write());
+    // turns into a ConwayCell
+    cell2.evolve(3);
+    ASSERT_EQ(CONWAY, cell2.type);
+    ASSERT_EQ('*', cell2.write());
+}
+
+/**
+ * Methods
+ */
 TEST(CellFixture, evolveTest1) {
     Cell cell;
     //Fredkin Cell - DEAD
@@ -501,6 +648,31 @@ TEST(CellFixture, isAliveTest3) {
 // Life
 // ----
 
+/**
+ * Constructors
+ */
+TEST(LifeFixture, constructorTest1) {
+    Life<ConwayCell> life(2, 2);
+    ASSERT_EQ(0, life.cellGrid.size());
+    ASSERT_EQ(4, life.neighborGrid.size());
+}
+
+TEST(LifeFixture, constructorTest2) {
+    Life<FredkinCell> life(0, 0);
+    ASSERT_EQ(0, life.cellGrid.size());
+    ASSERT_EQ(0, life.neighborGrid.size());
+}
+
+TEST(LifeFixture, constructorTest3) {
+    Life<Cell> life(2, 6);
+    ASSERT_EQ(0, life.cellGrid.size());
+    ASSERT_EQ(12, life.neighborGrid.size());
+}
+
+/**
+ * Operators
+ */
+
 TEST(LifeFixture, operatorReadTest1) {
     Life<ConwayCell> life(2, 2);
     istringstream in(".*.*");
@@ -563,6 +735,9 @@ TEST(LifeFixture, operatorWriteTest3) {
     ASSERT_EQ("...\n***\n...\n", out.str());
 }
 
+/**
+ * Methods
+ */
 TEST(LifeFixture, readTest1) {
     Life<ConwayCell> life(2, 2);
     istringstream in(".*.*");
@@ -623,25 +798,6 @@ TEST(LifeFixture, writeTest3) {
     life.write(out);
     // compare string with output string
     ASSERT_EQ("...\n***\n...\n", out.str());
-}
-
-TEST(LifeFixture, constructorTest1) {
-    Life<ConwayCell> life(2, 2);
-    ASSERT_EQ(0, life.cellGrid.size());
-    ASSERT_EQ(4, life.neighborGrid.size());
-}
-
-TEST(LifeFixture, constructorTest2) {
-    Life<FredkinCell> life(0, 0);
-    ASSERT_EQ(0, life.cellGrid.size());
-    ASSERT_EQ(0, life.neighborGrid.size());
-}
-
-
-TEST(LifeFixture, constructorTest3) {
-    Life<Cell> life(2, 6);
-    ASSERT_EQ(0, life.cellGrid.size());
-    ASSERT_EQ(12, life.neighborGrid.size());
 }
 
 TEST(LifeFixture, simulateTest1) {
@@ -851,11 +1007,6 @@ TEST(LifeFixture, atTest3) {
     Cell cell = life.at(0, 1);
     // starts off dead
     ASSERT_EQ(DEAD, cell.isAlive());
-    life.simulate(5);
-    cell = life.at(0, 1);
-    // ends up alive
-    ASSERT_EQ(ALIVE, cell.isAlive());
-    ASSERT_EQ('*', cell.write());
 }
 
 TEST(LifeFixture, beginTest1) {

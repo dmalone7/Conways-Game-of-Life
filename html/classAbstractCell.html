@@ -71,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -107,6 +107,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:acb4a116b1a007c03ce4e3644e6815a12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4576179f57220c4342edd9b01563df63"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractCell.html#a4576179f57220c4342edd9b01563df63">~AbstractCell</a> ()</td></tr>
 <tr class="separator:a4576179f57220c4342edd9b01563df63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a95a7ea92b3503e2f042170b6320354"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classAbstractCell.html">AbstractCell</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractCell.html#a1a95a7ea92b3503e2f042170b6320354">clone</a> () const =0</td></tr>
+<tr class="separator:a1a95a7ea92b3503e2f042170b6320354"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af14c9aacc0f348926a56c82d53aace17"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractCell.html#af14c9aacc0f348926a56c82d53aace17">evolve</a> (const int neighbors)=0</td></tr>
 <tr class="separator:af14c9aacc0f348926a56c82d53aace17"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae2da5cc48e6bb454c2fcaf5e417d5a5c"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractCell.html#ae2da5cc48e6bb454c2fcaf5e417d5a5c">isNeighbor</a> (int myrow, int mycol, int n_row, int n_col)=0</td></tr>
@@ -174,6 +176,33 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>alive</b></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a1a95a7ea92b3503e2f042170b6320354"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="classAbstractCell.html">AbstractCell</a>* AbstractCell::clone </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>abstract method </p>
+<dl class="section return"><dt>Returns</dt><dd>pointer to copy of this cell </dd></dl>
+
+<p>Implemented in <a class="el" href="classFredkinCell.html#a05d7cd1308b23d514e207317fdf06235">FredkinCell</a>, and <a class="el" href="classConwayCell.html#a0fac73dc33d36053d1400430f1c980ce">ConwayCell</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="af14c9aacc0f348926a56c82d53aace17"></a>
 <div class="memitem">
 <div class="memproto">
@@ -297,7 +326,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>alive</b></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 21 2016 18:46:04 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Apr 22 2016 16:14:45 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
